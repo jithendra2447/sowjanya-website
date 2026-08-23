@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart, Menu, X, Heart, User, ChevronDown, Search, ArrowRight, Plus, Minus, ShoppingBag } from "lucide-react";
+import { ShoppingCart, Menu, X, Heart, User, ChevronDown, Search, ArrowRight, Plus, Minus, ShoppingBag, Home, Grid } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useInventory } from "@/context/InventoryContext";
@@ -327,73 +327,101 @@ export default function Header() {
 
       </header>
 
-      {/* Floating Bottom Navigation Bar (Mobile View - 4 Clean Tabs) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#F8BBD0]/60 shadow-lg md:hidden flex justify-around items-center py-2 pb-5 px-3">
+      {/* Floating Bottom Navigation Bar (Mobile View - Brand Pastel Pink & Maroon Floating Pill) */}
+      <div className="fixed bottom-3 left-3 right-3 z-40 bg-gradient-to-r from-white via-[#fdf0f5] to-white/95 backdrop-blur-md border border-[#F8BBD0] shadow-xl shadow-[#4A0E17]/10 rounded-full md:hidden flex justify-around items-center py-1.5 px-1.5">
         
         {/* Home Tab */}
         <Link 
           to="/" 
-          className="flex flex-col items-center justify-center cursor-pointer"
-        >
-          <span className={cn(
-            "px-4 py-1.5 rounded-full flex items-center justify-center font-extrabold text-xs transition-all duration-200", 
+          onClick={() => setCartDrawerOpen(false)}
+          className={cn(
+            "flex flex-col items-center justify-center py-1 px-2.5 sm:px-3 rounded-full transition-all duration-300 cursor-pointer gap-0.5",
             pathname === "/" 
-              ? "bg-[#4A0E17] text-white shadow-xs" 
-              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
-          )}>
-            Home
-          </span>
+              ? "bg-[#4A0E17] text-white shadow-md shadow-[#4A0E17]/20" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30"
+          )}
+          aria-label="Home"
+        >
+          <Home className="w-4 h-4" />
+          <span className="text-[9px] font-black tracking-wide uppercase">Home</span>
+        </Link>
+
+        {/* Shop Tab */}
+        <Link 
+          to="/shop" 
+          onClick={() => setCartDrawerOpen(false)}
+          className={cn(
+            "flex flex-col items-center justify-center py-1 px-2.5 sm:px-3 rounded-full transition-all duration-300 cursor-pointer gap-0.5",
+            pathname.startsWith("/shop") 
+              ? "bg-[#4A0E17] text-white shadow-md shadow-[#4A0E17]/20" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30"
+          )}
+          aria-label="Shop"
+        >
+          <Grid className="w-4 h-4" />
+          <span className="text-[9px] font-black tracking-wide uppercase">Shop</span>
         </Link>
 
         {/* Wishlist Tab */}
         <Link 
           to="/wishlist" 
+          onClick={() => setCartDrawerOpen(false)}
           className={cn(
-            "relative p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            "relative flex flex-col items-center justify-center py-1 px-2.5 sm:px-3 rounded-full transition-all duration-300 cursor-pointer gap-0.5",
             pathname === "/wishlist" 
-              ? "bg-[#4A0E17] text-white shadow-xs" 
-              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+              ? "bg-[#4A0E17] text-white shadow-md shadow-[#4A0E17]/20" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30"
           )}
+          aria-label="Wishlist"
         >
-          <Heart className="w-5 h-5" />
-          {wishCount > 0 && (
-            <span className="absolute top-1 right-1 bg-rose-600 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
-              {wishCount}
-            </span>
-          )}
+          <div className="relative">
+            <Heart className="w-4 h-4" />
+            {wishCount > 0 && (
+              <span className="absolute -top-1 -right-2 bg-rose-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
+                {wishCount}
+              </span>
+            )}
+          </div>
+          <span className="text-[9px] font-black tracking-wide uppercase">Wishlist</span>
         </Link>
 
         {/* Cart Tab */}
         <button 
           id="bottom-cart-btn"
-          onClick={() => setCartDrawerOpen(true)}
+          onClick={() => setCartDrawerOpen(!cartDrawerOpen)}
           className={cn(
-            "relative p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
-            cartDrawerOpen 
-              ? "bg-[#4A0E17] text-white shadow-xs" 
-              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+            "relative flex flex-col items-center justify-center py-1 px-2.5 sm:px-3 rounded-full transition-all duration-300 cursor-pointer gap-0.5",
+            (cartDrawerOpen || pathname === "/cart") 
+              ? "bg-[#4A0E17] text-white shadow-md shadow-[#4A0E17]/20" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30"
           )}
           aria-label="Shopping Bag"
         >
-          <ShoppingCart className="w-5 h-5" />
-          {totalItems > 0 && (
-            <span className="absolute top-1 right-1 bg-[#4A0E17] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold border border-white">
-              {totalItems}
-            </span>
-          )}
+          <div className="relative">
+            <ShoppingCart className="w-4 h-4" />
+            {totalItems > 0 && (
+              <span className="absolute -top-1 -right-2 bg-amber-400 text-[#4A0E17] text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-black">
+                {totalItems}
+              </span>
+            )}
+          </div>
+          <span className="text-[9px] font-black tracking-wide uppercase">Bag</span>
         </button>
 
         {/* Profile Tab */}
         <Link 
           to="/profile" 
+          onClick={() => setCartDrawerOpen(false)}
           className={cn(
-            "p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            "flex flex-col items-center justify-center py-1 px-2.5 sm:px-3 rounded-full transition-all duration-300 cursor-pointer gap-0.5",
             pathname === "/profile" 
-              ? "bg-[#4A0E17] text-white shadow-xs" 
-              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+              ? "bg-[#4A0E17] text-white shadow-md shadow-[#4A0E17]/20" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30"
           )}
+          aria-label="Profile"
         >
-          <User className="w-5 h-5" />
+          <User className="w-4 h-4" />
+          <span className="text-[9px] font-black tracking-wide uppercase">Profile</span>
         </Link>
       </div>
 
@@ -407,7 +435,7 @@ export default function Header() {
           {/* Drawer Panel */}
           <div 
             ref={cartDrawerRef}
-            className="relative w-full max-w-md h-full bg-white shadow-2xl flex flex-col justify-between p-6 animate-in slide-in-from-right duration-300 border-l border-stone-200 text-left"
+            className="relative w-full max-w-md h-full bg-white shadow-2xl flex flex-col justify-between p-6 pb-24 md:pb-6 animate-in slide-in-from-right duration-300 border-l border-stone-200 text-left"
           >
             
             {/* Header */}
@@ -475,7 +503,7 @@ export default function Header() {
                       setCartDrawerOpen(false);
                       navigate("/shop");
                     }}
-                    className="px-6 py-2.5 bg-brand-dark hover:bg-[#2d1c3d] text-white text-xs font-extrabold rounded-full uppercase tracking-wider transition-colors shadow-md"
+                    className="px-6 py-3 bg-[#4A0E17] hover:bg-[#380b12] text-white text-xs font-extrabold rounded-full uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                   >
                     Shop Collection
                   </button>
@@ -485,7 +513,7 @@ export default function Header() {
 
             {/* Footer Summary */}
             {items.length > 0 && (
-              <div className="pt-4 border-t border-stone-100 space-y-4">
+              <div className="pt-4 border-t border-stone-100 space-y-4 mb-2">
                 <div className="flex items-center justify-between text-sm">
                   <span className="font-medium text-stone-500">Subtotal</span>
                   <span className="font-extrabold text-stone-900 text-base">₹{subtotal.toLocaleString("en-IN")}</span>
@@ -502,7 +530,7 @@ export default function Header() {
                   <Link
                     to="/checkout"
                     onClick={() => setCartDrawerOpen(false)}
-                    className="py-3 bg-[#120e17] hover:bg-[#2d1c3d] text-white text-xs font-extrabold rounded-full uppercase tracking-wider text-center transition-colors shadow-md flex items-center justify-center gap-1.5"
+                    className="py-3 bg-[#4A0E17] hover:bg-[#380b12] text-white text-xs font-extrabold rounded-full uppercase tracking-wider text-center transition-colors shadow-md flex items-center justify-center gap-1.5"
                   >
                     <span>Checkout</span>
                     <ArrowRight className="w-3.5 h-3.5" />
