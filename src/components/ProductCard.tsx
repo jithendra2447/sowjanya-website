@@ -49,10 +49,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   const isSoldOut = product.stock === 0;
 
   return (
-    <div className="group flex flex-col justify-between bg-white p-2 sm:p-3 rounded-[24px] neuo-flat transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-full">
+    <div className="group flex flex-col justify-between bg-white p-2 sm:p-3 rounded-[4px] border border-stone-200/80 shadow-xs transition-all duration-300 hover:-translate-y-1 relative overflow-hidden h-full">
       
       {/* Product Image Frame */}
-      <div className="relative w-full aspect-[4/3] rounded-[18px] overflow-hidden bg-stone-50 shadow-inner shrink-0">
+      <div className="relative w-full aspect-[4/3] rounded-[4px] overflow-hidden bg-stone-50 border border-stone-100 shrink-0">
         <Link to={`/product/${product.slug}`} className="w-full h-full block">
           <img
             src={product.image}
@@ -66,7 +66,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <button
           onClick={onHeart}
           aria-label={saved ? "Remove from wishlist" : "Add to wishlist"}
-          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center shadow-md active:scale-90 transition-all z-10 cursor-pointer"
+          className="absolute top-2 right-2 w-8 h-8 rounded-[4px] bg-white/95 backdrop-blur-xs flex items-center justify-center shadow-md active:scale-90 transition-all z-10 cursor-pointer border border-stone-100"
         >
           <Heart className={cn("w-4 h-4 transition-colors", saved ? "fill-red-500 text-red-500" : "text-stone-500")} />
         </button>
@@ -77,7 +77,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={onAddToCart}
             disabled={isAdding}
             className={cn(
-              "absolute bottom-2 right-2 px-3 py-1.5 rounded-full bg-[#120e17] text-white flex items-center gap-1.5 text-[10px] font-extrabold uppercase shadow-lg active:scale-95 transition-all z-10 cursor-pointer hover:bg-[#2d1c3d]"
+              "absolute bottom-2 right-2 px-3 py-1.5 rounded-[4px] bg-[#4A0E17] text-white flex items-center gap-1.5 text-[10px] font-bold uppercase shadow-md active:scale-95 transition-all z-10 cursor-pointer hover:bg-[#380A11]"
             )}
           >
             <ShoppingBag className="w-3.5 h-3.5" />
@@ -86,7 +86,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
 
         {isSoldOut && (
-          <span className="absolute top-2 left-2 text-[9px] font-extrabold tracking-wider bg-stone-900 text-white uppercase px-2 py-0.5 rounded-md">
+          <span className="absolute top-2 left-2 text-[9px] font-extrabold tracking-wider bg-stone-900 text-white uppercase px-2 py-0.5 rounded-[4px]">
             Sold Out
           </span>
         )}

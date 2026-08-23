@@ -35,7 +35,37 @@
     --input: 270 10% 85%;
     --ring: 270 30% 20%;
     
-    --radius: 1.5rem;
+    --radius: 4px;
+  }
+
+  /* Universal 4px Corner Radius for All Cards, Frames, Buttons, Chips, Badges, Modals & Containers */
+  button, 
+  input, 
+  select, 
+  textarea,
+  a.rounded-full,
+  a.rounded-3xl,
+  a.rounded-2xl,
+  a.rounded-xl,
+  a.rounded-lg,
+  a.rounded-md,
+  div.rounded-full,
+  div.rounded-3xl,
+  div.rounded-2xl,
+  div.rounded-xl,
+  div.rounded-lg,
+  div.rounded-md,
+  span.rounded-full,
+  span.rounded-3xl,
+  span.rounded-2xl,
+  span.rounded-xl,
+  span.rounded-lg,
+  span.rounded-md,
+  button.rounded-full,
+  .neuo-flat,
+  .neuo-btn,
+  .neuo-recessed {
+    border-radius: 4px !important;
   }
 }
 

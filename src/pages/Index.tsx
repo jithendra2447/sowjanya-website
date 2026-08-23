@@ -375,7 +375,7 @@ export default function Index() {
             {/* Slanted Model Frames (Right Column on Desktop / Centered in Middle on Mobile) */}
             <div className="md:w-[42%] lg:w-[40%] flex items-center justify-center gap-2.5 sm:gap-4 md:gap-5 overflow-visible py-2 md:py-4 shrink-0 z-10 w-full md:w-auto">
               {/* Card 1 */}
-              <div className="relative rounded-[18px] sm:rounded-[32px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[-4deg] skew-x-[-1deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 transition-all duration-500 hover:scale-105 hover:rotate-[-2deg] bg-white cursor-pointer">
+              <div className="relative rounded-[4px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[-4deg] skew-x-[-1deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 transition-all duration-500 hover:scale-105 hover:rotate-[-2deg] bg-white cursor-pointer">
                 <img 
                   src="/model-1.png" 
                   alt="LS Collections Model 1" 
@@ -384,7 +384,7 @@ export default function Index() {
               </div>
               
               {/* Card 2 */}
-              <div className="relative rounded-[18px] sm:rounded-[32px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[2deg] skew-x-[1deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 -translate-y-2 sm:-translate-y-6 transition-all duration-500 hover:scale-105 hover:rotate-[0deg] bg-white cursor-pointer">
+              <div className="relative rounded-[4px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[2deg] skew-x-[1deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 -translate-y-2 sm:-translate-y-6 transition-all duration-500 hover:scale-105 hover:rotate-[0deg] bg-white cursor-pointer">
                 <img 
                   src="/model-3.png" 
                   alt="LS Collections Model 2" 
@@ -393,7 +393,7 @@ export default function Index() {
               </div>
 
               {/* Card 3 */}
-              <div className="relative rounded-[18px] sm:rounded-[32px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[6deg] skew-x-[2deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 translate-y-1 sm:translate-y-4 transition-all duration-500 hover:scale-105 hover:rotate-[4deg] bg-white cursor-pointer">
+              <div className="relative rounded-[4px] overflow-hidden border-2 sm:border-4 border-white shadow-lg md:shadow-xl rotate-[6deg] skew-x-[2deg] w-20 h-44 sm:w-32 sm:h-64 md:w-36 md:h-72 lg:w-44 lg:h-[350px] shrink-0 translate-y-1 sm:translate-y-4 transition-all duration-500 hover:scale-105 hover:rotate-[4deg] bg-white cursor-pointer">
                 <img 
                   src="/model-2.png" 
                   alt="LS Collections Model 3" 
@@ -454,7 +454,7 @@ export default function Index() {
             <Link
               key={idx}
               to={`/shop?maxPrice=${item.price}`}
-              className={`group relative overflow-hidden bg-white text-[#4A0E17] border ${item.border} rounded-2xl p-2.5 sm:p-3 text-center transition-all duration-300 shadow-2xs hover:shadow-md hover:scale-[1.03] cursor-pointer flex flex-col items-center justify-center h-[78px] sm:h-[88px]`}
+              className={`group relative overflow-hidden bg-white text-[#4A0E17] border ${item.border} rounded-[4px] p-2.5 sm:p-3 text-center transition-all duration-300 shadow-2xs hover:shadow-md hover:scale-[1.03] cursor-pointer flex flex-col items-center justify-center h-[78px] sm:h-[88px]`}
             >
               {/* Top Accent Line that Expands to Fill Entire Card with Same Line Color on Hover */}
               <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${item.bg} group-hover:h-full transition-all duration-300 ease-out pointer-events-none opacity-90 group-hover:opacity-100`} />
@@ -576,7 +576,7 @@ export default function Index() {
               <Link
                 key={i}
                 to="/shop?category=Sarees"
-                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[24px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
+                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[4px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
               >
                 <img 
                   src={banner.img} 
@@ -585,7 +585,7 @@ export default function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-left z-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
+                  <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
                     {banner.tag}
                   </span>
                   <h3 className="text-base sm:text-lg font-sans font-extrabold text-white tracking-wide uppercase drop-shadow-xs">
@@ -596,8 +596,8 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Right Column: Saree Categories Menu List (Hidden on Mobile, Visible on Desktop lg+) */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[24px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
+          {/* Right Column: Saree Categories Menu List */}
+          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
             <div 
               ref={sareeCategoriesRef} 
               onMouseEnter={() => setIsCategoryHovered(true)}
@@ -740,7 +740,7 @@ export default function Index() {
               <Link
                 key={i}
                 to="/shop?category=Jewellery"
-                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[24px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
+                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[4px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
               >
                 <img 
                   src={banner.img} 
@@ -749,7 +749,7 @@ export default function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-left z-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
+                  <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
                     {banner.tag}
                   </span>
                   <h3 className="text-base sm:text-lg font-sans font-extrabold text-white tracking-wide uppercase drop-shadow-xs">
@@ -760,8 +760,8 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Right Column: Jewellery Categories Menu List (Hidden on Mobile, Visible on Desktop lg+) */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[24px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
+          {/* Right Column: Jewellery Categories Menu List */}
+          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
             <div 
               ref={jewelleryCategoriesRef} 
               onMouseEnter={() => setIsJewelleryHovered(true)}
@@ -904,7 +904,7 @@ export default function Index() {
               <Link
                 key={i}
                 to="/shop?category=Scoops"
-                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[24px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
+                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[4px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
               >
                 <img 
                   src={banner.img} 
@@ -913,7 +913,7 @@ export default function Index() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-left z-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
+                  <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
                     {banner.tag}
                   </span>
                   <h3 className="text-base sm:text-lg font-sans font-extrabold text-white tracking-wide uppercase drop-shadow-xs">
@@ -924,8 +924,8 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Right Column: Scoops Categories Menu List (Hidden on Mobile, Visible on Desktop lg+) */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[24px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
+          {/* Right Column: Scoops Categories Menu List */}
+          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
             <div 
               ref={scoopsCategoriesRef} 
               onMouseEnter={() => setIsScoopsHovered(true)}
@@ -1088,7 +1088,7 @@ export default function Index() {
                   ].map((review, idx) => (
                     <div 
                       key={idx}
-                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[18px] md:rounded-[22px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
+                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[4px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5 md:mb-2">
@@ -1206,7 +1206,7 @@ export default function Index() {
                   ].map((review, idx) => (
                     <div 
                       key={idx}
-                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[18px] md:rounded-[22px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
+                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[4px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-1.5 md:mb-2">
