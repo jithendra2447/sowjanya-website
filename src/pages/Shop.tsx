@@ -150,7 +150,7 @@ export default function Shop() {
 
                   {/* Text content rendered ON TOP of the picture */}
                   <div className="relative z-10 p-3 sm:p-3.5">
-                    <span className="text-[9px] font-bold text-[#F8BBD0] uppercase tracking-widest block mb-0.5">
+                    <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
                       SAREE EDIT
                     </span>
                     <span className="text-xs sm:text-sm md:text-base font-serif font-bold text-white tracking-wide block leading-snug drop-shadow-xs">
