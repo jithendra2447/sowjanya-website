@@ -158,7 +158,7 @@ export default function Shop() {
 
                   {/* Text content rendered ON TOP of the picture */}
                   <div className="relative z-10 p-2.5 sm:p-3">
-                    <span className="inline-block px-2 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white mb-1 shadow-2xs">
+                    <span className="inline-block px-2 py-0.5 rounded-[4px] bg-black/40 backdrop-blur-md border border-[#F8BBD0]/50 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-[#F8BBD0] mb-1 shadow-2xs">
                       SAREE EDIT
                     </span>
                     <span className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide block leading-tight drop-shadow-xs">
@@ -174,15 +174,14 @@ export default function Shop() {
         {/* Low-Height Sleek Separation Banner (Signature Pink Shade) */}
         <div className="mb-6 bg-gradient-to-r from-[#fdf0f5] via-[#fce4ec] to-[#fdf0f5] text-[#4A0E17] px-4 sm:px-6 py-2.5 rounded-[4px] border border-[#F8BBD0] shadow-xs flex items-center justify-between gap-2">
           <div className="flex items-center gap-2.5">
-            <Sparkles className="w-4 h-4 text-[#4A0E17] shrink-0" />
             <span className="text-xs sm:text-sm font-serif font-extrabold tracking-wider uppercase text-[#4A0E17]">
               EXPLORE ALL HANDPICKED SAREE CATALOGUE
             </span>
           </div>
           <div className="flex items-center gap-3 text-[10px] sm:text-xs font-bold text-[#6b1422]">
-            <span>✨ 100% Authentic Handloom Silk</span>
+            <span>100% Authentic Handloom Silk</span>
             <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline">⚡ Express WhatsApp Ordering</span>
+            <span className="hidden md:inline">Express WhatsApp Ordering</span>
           </div>
         </div>
 

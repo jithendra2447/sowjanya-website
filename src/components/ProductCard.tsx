@@ -94,8 +94,8 @@ export default function ProductCard({ product }: ProductCardProps) {
             className={cn(
               "w-full border rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-2xs hover:shadow-xs hover:scale-[1.02] active:scale-95",
               saved 
-                ? "bg-[#fdf0f5] border-[#4A0E17] text-[#4A0E17]" 
-                : "bg-white border-[#4A0E17] text-[#4A0E17] hover:bg-[#fdf0f5]"
+                ? "bg-[#fdf0f5] border-[#F8BBD0] text-[#4A0E17]" 
+                : "bg-white border-[#F8BBD0] text-[#4A0E17] hover:bg-[#fdf0f5]"
             )}
           >
             <Heart className={cn("w-3.5 h-3.5 transition-transform duration-300", saved ? "fill-[#4A0E17] text-[#4A0E17]" : "text-[#4A0E17]")} />
