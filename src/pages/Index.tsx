@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useInventory } from "@/context/InventoryContext";
 import { usePageCms } from "@/hooks/usePageCms";
 import ProductCard from "@/components/ProductCard";
-import { ArrowRight, ChevronRight, Sparkles, Clock, Percent, ShieldCheck, Heart, RefreshCw, Star, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Percent, ShieldCheck, Heart, RefreshCw, Star, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -245,32 +245,32 @@ export default function Index() {
       link: "/shop?category=Sarees"
     },
     {
-      title: "ORGANZA",
-      offer: "Min. 35% Off",
-      tag: "MODERN SHEER DRAPES",
-      img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Sarees"
-    },
-    {
       title: "KALAMKARI",
-      offer: "Hand-Printed Heritage",
-      tag: "ARTISANAL VINTAGE WEAVES",
+      offer: "Hand-Printed Vintage Weaves",
+      tag: "ARTISANAL VINTAGE DRAPES",
       img: "/saree-luxury-heritage-door.png",
-      link: "/shop?category=Sarees"
+      link: "/shop?category=Sarees&search=Kalamkari"
     },
     {
-      title: "SAREES",
-      offer: "Min. 50% Off",
-      tag: "BRIDAL & FESTIVE WEAVES",
+      title: "KANJEEVARAM SILK",
+      offer: "Royal Gold Zari Weaves",
+      tag: "PURE HANDLOOM SILK",
+      img: "/saree-luxury-kanjeevaram-yellow.png",
+      link: "/shop?category=Sarees&search=Kanjeevaram"
+    },
+    {
+      title: "BANARASI DRAPES",
+      offer: "Crimson & Gold Heritage",
+      tag: "ROYAL HERITAGE WEAVES",
       img: "/saree-studio-hero.jpg",
-      link: "/shop?category=Sarees"
+      link: "/shop?category=Sarees&search=Banarasi"
     },
     {
-      title: "KANJEEVARAM",
-      offer: "Min. 40% Off",
-      tag: "ROYAL GOLD ZARI SILKS",
+      title: "SOFT SILK EDIT",
+      offer: "Special Festive Wear @ ₹1999",
+      tag: "MYSORE & CHANDERI COTTONS",
       img: "/saree-studio-card-2.jpg",
-      link: "/shop?category=Sarees"
+      link: "/shop?category=Sarees&search=Soft"
     }
   ];
 
@@ -282,47 +282,40 @@ export default function Index() {
     return () => clearInterval(sareeTimer);
   }, [sareeLuxuryBanners.length]);
 
-  // Saree Luxury Editorial Split Banner State & Slides (Completely Dedicated to Sarees)
+  // Jewellery Luxury Editorial Split Banner State & Slides
   const [activeJewelleryLuxuryIndex, setActiveJewelleryLuxuryIndex] = useState(0);
   const jewelleryLuxuryBanners = [
     {
-      title: "ROYAL KANJEEVARAM",
-      offer: "Bridal & Heavy Gold Zari Edit",
-      tag: "PURE HEIRLOOM SILK",
-      img: "/saree-luxury-royal-group.png",
-      link: "/shop?category=Sarees"
+      title: "TEMPLE JEWELLERY",
+      offer: "Min. 30% Off",
+      tag: "ANTIQUE GOLD FINISH",
+      img: "/jewellery-studio-hero-2.jpg",
+      link: "/shop?category=Jewellery"
     },
     {
-      title: "BANARASI SILKS",
-      offer: "Pure Handloom Heritage Weaves",
-      tag: "ARTISANAL CRAFTSMANSHIP",
-      img: "/saree-luxury-heritage-door.png",
-      link: "/shop?category=Sarees&search=Banarasi"
+      title: "KUNDAN & POLKI",
+      offer: "Royal Bridal Sets",
+      tag: "ROYAL SPLENDOR",
+      img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Kundan"
     },
     {
-      title: "BRIDAL PATTU",
-      offer: "Grand Temple Silk & Vaddanam Edit",
-      tag: "ROYAL FESTIVE WEAVES",
-      img: "/saree-luxury-bridal-gold.png",
-      link: "/shop?category=Sarees&search=Pattu"
+      title: "OXIDISED SILVER",
+      offer: "Everyday & Festive Grace",
+      tag: "ARTISANAL CHIC",
+      img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Silver"
     },
     {
-      title: "CHANDERI & ORGANZA",
-      offer: "Min. 35% Off Sheer Drapes",
-      tag: "MODERN SHEER ELEGANCE",
-      img: "/saree-studio-card-2.jpg",
-      link: "/shop?category=Sarees&search=Organza"
-    },
-    {
-      title: "MYSORE & COTTONS",
-      offer: "Lightweight & Daily Comfort",
-      tag: "EVERYDAY ELEGANCE",
-      img: "/saree-studio-hero.jpg",
-      link: "/shop?category=Sarees&search=Cotton"
+      title: "BRIDAL CHOKERS",
+      offer: "Special Heirloom Edit",
+      tag: "HERITAGE HEIRLOOM",
+      img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Choker"
     }
   ];
 
-  // Saree Luxury Banner Auto-scroll Timer
+  // Jewellery Luxury Banner Auto-scroll Timer
   useEffect(() => {
     const jewTimer = setInterval(() => {
       setActiveJewelleryLuxuryIndex((prev) => (prev + 1) % jewelleryLuxuryBanners.length);
@@ -594,18 +587,18 @@ export default function Index() {
 
 
 
-      {/* Luxury Split Auto-Scrolling Editorial Jewellery Banner (Placed Right Above Jewellery Studio) */}
+      {/* Luxury Split Auto-Scrolling Editorial Saree Banner (Placed Right Above Studio Section) */}
       <section className="max-w-[1440px] mx-auto px-4 mb-8 text-left">
         <div className="w-full bg-white rounded-[4px] border border-stone-200 shadow-xs overflow-hidden flex flex-col md:flex-row h-[360px] sm:h-[400px] md:h-[430px] relative">
           
           {/* Left Column (~70% Width): Auto-Scrolling Image Banner Slider */}
           <div className="relative w-full md:w-[70%] h-[240px] sm:h-[280px] md:h-full bg-stone-100 overflow-hidden">
-            {jewelleryLuxuryBanners.map((banner, idx) => (
+            {sareeLuxuryBanners.map((banner, idx) => (
               <div
                 key={idx}
                 className={cn(
                   "absolute inset-0 transition-opacity duration-700 ease-in-out",
-                  idx === activeJewelleryLuxuryIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                  idx === activeSareeLuxuryIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                 )}
               >
                 <img
@@ -619,13 +612,13 @@ export default function Index() {
 
             {/* Bottom Center Pagination Indicator Dots */}
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/25 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
-              {jewelleryLuxuryBanners.map((_, idx) => (
+              {sareeLuxuryBanners.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveJewelleryLuxuryIndex(idx)}
+                  onClick={() => setActiveSareeLuxuryIndex(idx)}
                   className={cn(
                     "transition-all duration-300 rounded-full cursor-pointer",
-                    idx === activeJewelleryLuxuryIndex
+                    idx === activeSareeLuxuryIndex
                       ? "w-2.5 h-2.5 bg-white scale-110"
                       : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
                   )}
@@ -639,19 +632,19 @@ export default function Index() {
           <div className="w-full md:w-[30%] bg-white p-6 sm:p-8 md:p-10 flex flex-col justify-between items-start text-left relative z-10 border-t md:border-t-0 md:border-l border-stone-200">
             <div className="w-full space-y-2 sm:space-y-3">
               <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
-                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].tag}
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].tag}
               </span>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-wide uppercase leading-tight">
-                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].title}
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].title}
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-stone-600 font-medium tracking-wide">
-                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].offer}
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].offer}
               </p>
 
               <div className="w-full h-px bg-stone-200/80 my-3 sm:my-4" />
 
               <Link
-                to={jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].link}
+                to={sareeLuxuryBanners[activeSareeLuxuryIndex].link}
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500 hover:text-stone-950 transition-colors group cursor-pointer"
               >
                 <span>+ Explore</span>
@@ -662,14 +655,14 @@ export default function Index() {
             {/* Bottom Right Next/Prev Control Buttons */}
             <div className="absolute bottom-4 right-4 flex items-center gap-1 z-20">
               <button
-                onClick={() => setActiveJewelleryLuxuryIndex((prev) => (prev === 0 ? jewelleryLuxuryBanners.length - 1 : prev - 1))}
+                onClick={() => setActiveSareeLuxuryIndex((prev) => (prev === 0 ? sareeLuxuryBanners.length - 1 : prev - 1))}
                 className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
                 aria-label="Previous Slide"
               >
                 ‹
               </button>
               <button
-                onClick={() => setActiveJewelleryLuxuryIndex((prev) => (prev + 1) % jewelleryLuxuryBanners.length)}
+                onClick={() => setActiveSareeLuxuryIndex((prev) => (prev + 1) % sareeLuxuryBanners.length)}
                 className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
                 aria-label="Next Slide"
               >
@@ -782,25 +775,19 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Right Column: Jewellery Categories Editorial Panel */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-br from-[#4A0E17] via-[#5c121d] to-[#360a10] border border-[#F8BBD0]/40 rounded-[6px] p-4 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-md text-white">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#F8BBD0]/10 rounded-full blur-2xl pointer-events-none" />
+          {/* Right Column: Jewellery Categories Menu List */}
+          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
             <div 
               ref={jewelleryCategoriesRef} 
               onMouseEnter={() => setIsJewelleryHovered(true)}
               onMouseLeave={() => setIsJewelleryHovered(false)}
-              className="overflow-y-auto pr-1.5 scrollbar-none relative z-1"
+              className="overflow-y-auto pr-2 scrollbar-none relative z-1"
             >
-              <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#F8BBD0]/30 sticky top-0 bg-[#4A0E17] z-10 pt-0.5">
-                <h4 className="text-xs uppercase tracking-widest text-[#F8BBD0] font-black">
-                  JEWELLERY EDITS
-                </h4>
-                <span className="text-[9px] font-bold bg-[#F8BBD0]/20 text-[#F8BBD0] px-2 py-0.5 rounded-full border border-[#F8BBD0]/40 uppercase tracking-wider">
-                  COLLECTION
-                </span>
-              </div>
+              <h4 className="text-xs uppercase tracking-widest text-[#4A0E17] font-black mb-2.5 pb-2 border-b border-[#F8BBD0] sticky top-0 bg-[#fdf0f5] z-10 pt-0.5">
+                JEWELLERY CATEGORIES
+              </h4>
 
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {[
                   ...[
                     { name: "Temple Jewellery Sets" },
@@ -830,19 +817,18 @@ export default function Index() {
                   <Link
                     key={i}
                     to={`/shop?category=Jewellery`}
-                    className="flex items-center justify-between text-xs font-semibold text-stone-200 hover:text-white hover:bg-[#F8BBD0]/20 rounded-md px-2.5 py-1.5 transition-all cursor-pointer group"
+                    className="block text-xs sm:text-[13px] font-semibold text-stone-700 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30 rounded-lg px-2 py-1.5 transition-all leading-snug cursor-pointer"
                   >
-                    <span>{item.name}</span>
-                    <ChevronRight className="w-3 h-3 text-[#F8BBD0]/60 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    {item.name}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-2 pt-2.5 border-t border-[#F8BBD0]/30 shrink-0 relative z-1">
+            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1 px-1">
               <Link
                 to="/shop?category=Jewellery"
-                className="flex items-center justify-between text-xs font-black text-[#4A0E17] bg-[#F8BBD0] hover:bg-[#fce4ec] px-3.5 py-2 rounded-md uppercase tracking-widest transition-all shadow-xs group cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs font-black text-[#4A0E17] hover:underline uppercase tracking-widest group cursor-pointer"
               >
                 <span>VIEW ALL JEWELLERY</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -953,25 +939,19 @@ export default function Index() {
             ))}
           </div>
 
-          {/* Right Column: Scoops Categories Editorial Panel */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-br from-[#4A0E17] via-[#5c121d] to-[#360a10] border border-[#F8BBD0]/40 rounded-[6px] p-4 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-md text-white">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#F8BBD0]/10 rounded-full blur-2xl pointer-events-none" />
+          {/* Right Column: Scoops Categories Menu List */}
+          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
             <div 
               ref={scoopsCategoriesRef} 
               onMouseEnter={() => setIsScoopsHovered(true)}
               onMouseLeave={() => setIsScoopsHovered(false)}
-              className="overflow-y-auto pr-1.5 scrollbar-none relative z-1"
+              className="overflow-y-auto pr-2 scrollbar-none relative z-1"
             >
-              <div className="flex items-center justify-between mb-3 pb-2 border-b border-[#F8BBD0]/30 sticky top-0 bg-[#4A0E17] z-10 pt-0.5">
-                <h4 className="text-xs uppercase tracking-widest text-[#F8BBD0] font-black">
-                  SCOOPS EDITS
-                </h4>
-                <span className="text-[9px] font-bold bg-[#F8BBD0]/20 text-[#F8BBD0] px-2 py-0.5 rounded-full border border-[#F8BBD0]/40 uppercase tracking-wider">
-                  ACCESSORIES
-                </span>
-              </div>
+              <h4 className="text-xs uppercase tracking-widest text-[#4A0E17] font-black mb-2.5 pb-2 border-b border-[#F8BBD0] sticky top-0 bg-[#fdf0f5] z-10 pt-0.5">
+                SCOOPS CATEGORIES
+              </h4>
 
-              <div className="space-y-1">
+              <div className="space-y-0.5">
                 {[
                   ...[
                     { name: "Large Scoops" },
@@ -999,19 +979,18 @@ export default function Index() {
                   <Link
                     key={i}
                     to={`/shop?category=Scoops`}
-                    className="flex items-center justify-between text-xs font-semibold text-stone-200 hover:text-white hover:bg-[#F8BBD0]/20 rounded-md px-2.5 py-1.5 transition-all cursor-pointer group"
+                    className="block text-xs sm:text-[13px] font-semibold text-stone-700 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30 rounded-lg px-2 py-1.5 transition-all leading-snug cursor-pointer"
                   >
-                    <span>{item.name}</span>
-                    <ChevronRight className="w-3 h-3 text-[#F8BBD0]/60 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    {item.name}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="mt-2 pt-2.5 border-t border-[#F8BBD0]/30 shrink-0 relative z-1">
+            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1 px-1">
               <Link
                 to="/shop?category=Scoops"
-                className="flex items-center justify-between text-xs font-black text-[#4A0E17] bg-[#F8BBD0] hover:bg-[#fce4ec] px-3.5 py-2 rounded-md uppercase tracking-widest transition-all shadow-xs group cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs font-black text-[#4A0E17] hover:underline uppercase tracking-widest group cursor-pointer"
               >
                 <span>VIEW ALL SCOOPS</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -1069,217 +1048,121 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (2 Realistic Marquee Rows) */}
-      <section className="w-full mt-6 mb-1 py-6 bg-gradient-to-b from-stone-50 via-[#fdf0f5]/50 to-stone-50 overflow-hidden text-left border-y border-stone-200/80">
+      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (Clean Single Row Marquee) */}
+      <section className="w-full mt-6 mb-1 py-6 bg-gradient-to-b from-white via-[#fdf0f5]/40 to-white overflow-hidden text-left border-y border-[#F8BBD0]/30">
         <div className="max-w-[1440px] mx-auto px-4 mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-[10px] font-black uppercase tracking-widest bg-[#4A0E17] text-[#F8BBD0] px-2.5 py-0.5 rounded-full">
-                VERIFIED TESTIMONIALS
-              </span>
-              <span className="text-[11px] font-bold text-amber-600 flex items-center gap-1">
-                ★ 4.9 / 5.0 (2,400+ REVIEWS)
-              </span>
-            </div>
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#4A0E17]">
               Customer Reviews & Love
             </h2>
+            <p className="text-xs sm:text-sm font-medium text-stone-500 mt-0.5">
+              Real experiences from our verified buyers across India
+            </p>
           </div>
         </div>
 
-        {/* 2-Way Moving Marquee Container */}
-        <div className="space-y-3">
-          
-          {/* Row 1: Right-to-Left Marquee */}
-          <div className="relative w-full flex overflow-x-hidden">
-            <div className="animate-marquee flex items-center gap-3.5 whitespace-normal cursor-pointer py-1">
-              {[1, 2].map((loopKey) => (
-                <div key={loopKey} className="flex items-center gap-3.5 shrink-0">
-                  {[
-                    {
-                      initials: "AS",
-                      name: "Ananya Sharma",
-                      city: "Bengaluru",
-                      time: "2 days ago",
-                      text: "The Pure Kanjeevaram Saree was beyond stunning! The gold zari sheen and silk texture are 100% authentic.",
-                      item: "Bridal Kanjeevaram"
-                    },
-                    {
-                      initials: "KR",
-                      name: "Kavya Reddy",
-                      city: "Hyderabad",
-                      time: "3 days ago",
-                      text: "Received my temple jewellery set in 3 days. Premium weight, antique matte finish, and secure box packaging!",
-                      item: "Temple Jewellery"
-                    },
-                    {
-                      initials: "PN",
-                      name: "Priya Natarajan",
-                      city: "Chennai",
-                      time: "5 days ago",
-                      text: "Soft silk sarees from LS Collections are light & comfortable for full-day weddings. Drapes effortlessly!",
-                      item: "Soft Silk Saree"
-                    },
-                    {
-                      initials: "MI",
-                      name: "Meera Iyer",
-                      city: "Mumbai",
-                      time: "1 week ago",
-                      text: "Ordered the Pearl Scoop set along with a Banarasi silk saree. Excellent customer support and instant WhatsApp updates.",
-                      item: "Pearl Scoop Combo"
-                    },
-                    {
-                      initials: "DM",
-                      name: "Divya Menon",
-                      city: "Kochi",
-                      time: "1 week ago",
-                      text: "The Zari work on my bridal saree was intricate and gorgeous. Compliments all night at the reception!",
-                      item: "Bridal Zari Silk"
-                    }
-                  ].map((review, idx) => (
-                    <div 
-                      key={idx}
-                      className="w-[270px] sm:w-[310px] md:w-[340px] bg-white border border-stone-200 hover:border-[#4A0E17]/40 rounded-[6px] p-3 sm:p-3.5 flex flex-col justify-between h-[125px] sm:h-[135px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded-full bg-[#4A0E17] text-[#F8BBD0] font-black text-[9px] flex items-center justify-center shrink-0">
-                              {review.initials}
-                            </div>
-                            <div className="leading-none">
-                              <h4 className="text-xs font-bold text-stone-900 leading-none">
-                                {review.name}
-                              </h4>
-                              <span className="text-[10px] text-stone-400 font-medium">
-                                {review.city} • {review.time}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-0.5">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                            ))}
-                          </div>
+        {/* Single Moving Marquee Row */}
+        <div className="relative w-full flex overflow-x-hidden">
+          <div className="animate-marquee flex items-center gap-4 whitespace-normal cursor-pointer py-1">
+            {[1, 2].map((loopKey) => (
+              <div key={loopKey} className="flex items-center gap-4 shrink-0">
+                {[
+                  {
+                    name: "Ananya Sharma",
+                    city: "Bengaluru, KA",
+                    stars: 5,
+                    text: "The Pure Kanjeevaram Saree I ordered for my sister's wedding was beyond stunning! The gold zari sheen and silk texture are 100% authentic.",
+                    tag: "Pure Silk Saree"
+                  },
+                  {
+                    name: "Kavya Reddy",
+                    city: "Hyderabad, TS",
+                    stars: 5,
+                    text: "Received my temple jewellery set in just 3 days. Premium weight, antique matte finish, and extremely well packaged!",
+                    tag: "Temple Jewellery"
+                  },
+                  {
+                    name: "Priya Natarajan",
+                    city: "Chennai, TN",
+                    stars: 5,
+                    text: "Soft silk sarees from LS Collections are so light and comfortable for full-day events. Drapes effortlessly!",
+                    tag: "Soft Silk"
+                  },
+                  {
+                    name: "Meera Iyer",
+                    city: "Mumbai, MH",
+                    stars: 5,
+                    text: "Ordered the Pearl Scoop set along with a Banarasi silk saree. Excellent customer support and instant WhatsApp delivery updates.",
+                    tag: "Pearl Scoop Combo"
+                  },
+                  {
+                    name: "Divya Menon",
+                    city: "Kochi, KL",
+                    stars: 5,
+                    text: "The Zari work on my bridal saree was intricate and gorgeous. Everyone at the reception complimented the rich maroon color!",
+                    tag: "Bridal Zari"
+                  },
+                  {
+                    name: "Sneha Patel",
+                    city: "Ahmedabad, GJ",
+                    stars: 5,
+                    text: "Direct factory pricing is genuine. Pure handloom silk quality at half the boutique price. Super happy with my purchase!",
+                    tag: "Handloom Silk"
+                  },
+                  {
+                    name: "Pooja Agarwal",
+                    city: "New Delhi, DL",
+                    stars: 5,
+                    text: "The Kundan Choker set looks like real heirloom gold! Perfectly matched my sangeet lehenga.",
+                    tag: "Kundan Choker"
+                  },
+                  {
+                    name: "Ritu Verma",
+                    city: "Jaipur, RJ",
+                    stars: 5,
+                    text: "Fast dispatch, pristine box packaging, and genuine silk mark guarantee included. Highly recommended brand!",
+                    tag: "Pure Banarasi"
+                  }
+                ].map((review, idx) => (
+                  <div 
+                    key={idx}
+                    className="w-[280px] sm:w-[320px] md:w-[350px] bg-white hover:bg-[#fdf0f5]/40 border border-stone-200 hover:border-[#F8BBD0] rounded-[4px] p-4 flex flex-col justify-between h-[145px] sm:h-[155px] shadow-2xs hover:shadow-sm transition-all duration-300 shrink-0"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-0.5">
+                          {[...Array(review.stars)].map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                          ))}
                         </div>
-
-                        <p className="text-xs text-stone-700 leading-snug font-medium line-clamp-2">
-                          "{review.text}"
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-1.5 border-t border-stone-100 mt-1">
-                        <span className="inline-flex items-center gap-1 text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                           <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
-                          Verified Purchase
-                        </span>
-                        <span className="text-[10px] font-bold text-[#4A0E17]">
-                          {review.item}
+                          Verified Buyer
                         </span>
                       </div>
+                      <p className="text-xs md:text-sm text-stone-700 leading-snug font-medium line-clamp-2">
+                        "{review.text}"
+                      </p>
                     </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Row 2: Left-to-Right Reverse Marquee */}
-          <div className="relative w-full flex overflow-x-hidden">
-            <div className="animate-marquee-reverse flex items-center gap-3.5 whitespace-normal cursor-pointer py-1">
-              {[1, 2].map((loopKey) => (
-                <div key={loopKey} className="flex items-center gap-3.5 shrink-0">
-                  {[
-                    {
-                      initials: "SP",
-                      name: "Sneha Patel",
-                      city: "Ahmedabad",
-                      time: "4 days ago",
-                      text: "Direct factory pricing is genuine. Pure handloom silk quality at half boutique price. Super happy!",
-                      item: "Handloom Silk"
-                    },
-                    {
-                      initials: "PA",
-                      name: "Pooja Agarwal",
-                      city: "New Delhi",
-                      time: "6 days ago",
-                      text: "The Kundan Choker set looks like real heirloom gold! Perfectly matched my sangeet lehenga.",
-                      item: "Kundan Choker"
-                    },
-                    {
-                      initials: "RV",
-                      name: "Ritu Verma",
-                      city: "Jaipur",
-                      time: "1 week ago",
-                      text: "Fast dispatch, pristine box packaging, and genuine Silk Mark certificate included. Highly recommended!",
-                      item: "Pure Banarasi"
-                    },
-                    {
-                      initials: "DR",
-                      name: "Deepika Rao",
-                      city: "Visakhapatnam",
-                      time: "1 week ago",
-                      text: "The Mulmul cottons are a lifesaver for summer festive wear. Soft, breathable, and vibrant colors.",
-                      item: "Daily Cotton Saree"
-                    },
-                    {
-                      initials: "SK",
-                      name: "Shweta Kulkarni",
-                      city: "Pune",
-                      time: "2 weeks ago",
-                      text: "Love the designer scoop combos! Unique accessories that added so much charm to my traditional saree look.",
-                      item: "Designer Scoops"
-                    }
-                  ].map((review, idx) => (
-                    <div 
-                      key={idx}
-                      className="w-[270px] sm:w-[310px] md:w-[340px] bg-white border border-stone-200 hover:border-[#4A0E17]/40 rounded-[6px] p-3 sm:p-3.5 flex flex-col justify-between h-[125px] sm:h-[135px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
-                    >
+                    <div className="flex items-center justify-between pt-2 border-t border-stone-100 mt-2">
                       <div>
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded-full bg-[#4A0E17] text-[#F8BBD0] font-black text-[9px] flex items-center justify-center shrink-0">
-                              {review.initials}
-                            </div>
-                            <div className="leading-none">
-                              <h4 className="text-xs font-bold text-stone-900 leading-none">
-                                {review.name}
-                              </h4>
-                              <span className="text-[10px] text-stone-400 font-medium">
-                                {review.city} • {review.time}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-0.5">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                            ))}
-                          </div>
-                        </div>
-
-                        <p className="text-xs text-stone-700 leading-snug font-medium line-clamp-2">
-                          "{review.text}"
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-1.5 border-t border-stone-100 mt-1">
-                        <span className="inline-flex items-center gap-1 text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
-                          <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
-                          Verified Purchase
-                        </span>
-                        <span className="text-[10px] font-bold text-[#4A0E17]">
-                          {review.item}
+                        <h4 className="text-xs font-black text-[#4A0E17] leading-none">
+                          {review.name}
+                        </h4>
+                        <span className="text-[10px] text-stone-400 font-medium">
+                          {review.city}
                         </span>
                       </div>
+                      <span className="text-[10px] font-bold text-[#4A0E17] bg-[#F8BBD0]/30 px-2 py-0.5 rounded-md">
+                        {review.tag}
+                      </span>
                     </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
-
         </div>
       </section>
 
