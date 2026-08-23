@@ -131,9 +131,6 @@ export default function Header() {
             <Link to="/shop" className={cn("hover:text-brand-dark transition-colors", pathname === "/shop" && "text-brand-dark")}>
               Shop All
             </Link>
-            <Link to="/about" className={cn("hover:text-brand-dark transition-colors", pathname === "/about" && "text-brand-dark")}>
-              About
-            </Link>
             <Link to="/contact" className={cn("hover:text-brand-dark transition-colors", pathname === "/contact" && "text-brand-dark")}>
               Contact
             </Link>
