@@ -282,6 +282,47 @@ export default function Index() {
     return () => clearInterval(sareeTimer);
   }, [sareeLuxuryBanners.length]);
 
+  // Jewellery Luxury Editorial Split Banner State & Slides
+  const [activeJewelleryLuxuryIndex, setActiveJewelleryLuxuryIndex] = useState(0);
+  const jewelleryLuxuryBanners = [
+    {
+      title: "TEMPLE JEWELLERY",
+      offer: "Min. 30% Off",
+      tag: "ANTIQUE GOLD FINISH",
+      img: "/jewellery-studio-hero-2.jpg",
+      link: "/shop?category=Jewellery"
+    },
+    {
+      title: "KUNDAN & POLKI",
+      offer: "Royal Bridal Sets",
+      tag: "ROYAL SPLENDOR",
+      img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Kundan"
+    },
+    {
+      title: "OXIDISED SILVER",
+      offer: "Everyday & Festive Grace",
+      tag: "ARTISANAL CHIC",
+      img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Silver"
+    },
+    {
+      title: "BRIDAL CHOKERS",
+      offer: "Special Heirloom Edit",
+      tag: "HERITAGE HEIRLOOM",
+      img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Jewellery&search=Choker"
+    }
+  ];
+
+  // Jewellery Luxury Banner Auto-scroll Timer
+  useEffect(() => {
+    const jewTimer = setInterval(() => {
+      setActiveJewelleryLuxuryIndex((prev) => (prev + 1) % jewelleryLuxuryBanners.length);
+    }, 3500);
+    return () => clearInterval(jewTimer);
+  }, [jewelleryLuxuryBanners.length]);
+
   const editorialSlides = [
     {
       id: 1,
@@ -545,6 +586,93 @@ export default function Index() {
       </div>
 
 
+
+      {/* Luxury Split Auto-Scrolling Editorial Jewellery Banner (Placed Right Above Jewellery Studio) */}
+      <section className="max-w-[1440px] mx-auto px-4 mb-8 text-left">
+        <div className="w-full bg-white rounded-[4px] border border-stone-200 shadow-xs overflow-hidden flex flex-col md:flex-row h-[360px] sm:h-[400px] md:h-[430px] relative">
+          
+          {/* Left Column (~70% Width): Auto-Scrolling Image Banner Slider */}
+          <div className="relative w-full md:w-[70%] h-[240px] sm:h-[280px] md:h-full bg-stone-100 overflow-hidden">
+            {jewelleryLuxuryBanners.map((banner, idx) => (
+              <div
+                key={idx}
+                className={cn(
+                  "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                  idx === activeJewelleryLuxuryIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                )}
+              >
+                <img
+                  src={banner.img}
+                  alt={banner.title}
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              </div>
+            ))}
+
+            {/* Bottom Center Pagination Indicator Dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/25 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+              {jewelleryLuxuryBanners.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveJewelleryLuxuryIndex(idx)}
+                  className={cn(
+                    "transition-all duration-300 rounded-full cursor-pointer",
+                    idx === activeJewelleryLuxuryIndex
+                      ? "w-2.5 h-2.5 bg-white scale-110"
+                      : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
+                  )}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column (~30% Width): White Luxury Editorial Card Matching Reference Image */}
+          <div className="w-full md:w-[30%] bg-white p-6 sm:p-8 md:p-10 flex flex-col justify-between items-start text-left relative z-10 border-t md:border-t-0 md:border-l border-stone-200">
+            <div className="w-full space-y-2 sm:space-y-3">
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
+                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].tag}
+              </span>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-wide uppercase leading-tight">
+                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].title}
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-stone-600 font-medium tracking-wide">
+                {jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].offer}
+              </p>
+
+              <div className="w-full h-px bg-stone-200/80 my-3 sm:my-4" />
+
+              <Link
+                to={jewelleryLuxuryBanners[activeJewelleryLuxuryIndex].link}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500 hover:text-stone-950 transition-colors group cursor-pointer"
+              >
+                <span>+ Explore</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Bottom Right Next/Prev Control Buttons */}
+            <div className="absolute bottom-4 right-4 flex items-center gap-1 z-20">
+              <button
+                onClick={() => setActiveJewelleryLuxuryIndex((prev) => (prev === 0 ? jewelleryLuxuryBanners.length - 1 : prev - 1))}
+                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                aria-label="Previous Slide"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setActiveJewelleryLuxuryIndex((prev) => (prev + 1) % jewelleryLuxuryBanners.length)}
+                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                aria-label="Next Slide"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* Dedicated Section: THE JEWELLERY STUDIO */}
       <section className="max-w-[1440px] mx-auto px-4 mb-10 text-left">
