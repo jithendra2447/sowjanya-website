@@ -1010,15 +1010,15 @@ export default function Index() {
 
 
 
-      {/* Dedicated Section: THE SAREE STUDIO */}
+      {/* Dedicated Section: OUR BESTSELLERS (Mix of All Categories) */}
       <section className="max-w-[1440px] mx-auto px-4 mb-10 text-left">
         <div className="flex items-center justify-between mb-4 px-1">
           <div>
             <h2 className="text-lg sm:text-xl font-sans font-extrabold text-[#4A0E17] tracking-wider uppercase">
-              THE SAREE STUDIO
+              OUR BESTSELLERS
             </h2>
             <p className="text-[11px] font-medium text-stone-500 tracking-wider uppercase mt-0.5">
-              BRIDAL & FESTIVE WEAVES
+              HANDPICKED FAVORITES ACROSS ALL CATEGORIES
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -1040,7 +1040,7 @@ export default function Index() {
         </div>
 
         <div ref={sareeScrollRef} className="flex gap-4 overflow-x-auto pb-4 scrollbar-none snap-x">
-          {products.filter((p) => p.category.toLowerCase() === "sarees").map((product) => (
+          {products.map((product) => (
             <div key={product.slug} className="w-[260px] sm:w-[280px] shrink-0 snap-start">
               <ProductCard product={product} />
             </div>
@@ -1048,258 +1048,121 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (Compact Height Marquee) */}
-      <section className="w-full mt-6 mb-1 py-4 md:py-8 bg-gradient-to-b from-white via-[#fdf0f5]/60 to-white overflow-hidden text-left border-y border-[#F8BBD0]/40">
-        <div className="max-w-[1440px] mx-auto px-4 mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (Clean Single Row Marquee) */}
+      <section className="w-full mt-6 mb-1 py-6 bg-gradient-to-b from-white via-[#fdf0f5]/40 to-white overflow-hidden text-left border-y border-[#F8BBD0]/30">
+        <div className="max-w-[1440px] mx-auto px-4 mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17]">
+            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#4A0E17]">
               Customer Reviews & Love
             </h2>
-            <p className="text-xs sm:text-sm font-medium text-stone-600 mt-1">
+            <p className="text-xs sm:text-sm font-medium text-stone-500 mt-0.5">
               Real experiences from our verified buyers across India
             </p>
           </div>
         </div>
 
-        {/* 2-Way Moving Marquee Container (Single Scrolling on Mobile, 2-Way Opposite on Desktop) */}
-        <div className="space-y-4">
-          
-          {/* Row 1: Right to Left Scrolling (Contains all reviews, active on both Mobile & Desktop) */}
-          <div className="relative w-full flex overflow-x-hidden">
-            <div className="animate-marquee flex items-center gap-4 whitespace-normal cursor-pointer py-1">
-              {[1, 2].map((loopKey) => (
-                <div key={loopKey} className="flex items-center gap-4 shrink-0">
-                  {[
-                    {
-                      name: "Ananya Sharma",
-                      city: "Bengaluru, KA",
-                      stars: 5,
-                      text: "The Pure Kanjeevaram Saree I ordered for my sister's wedding was beyond stunning! The gold zari sheen and silk texture are 100% authentic.",
-                      tag: "Pure Silk Saree"
-                    },
-                    {
-                      name: "Kavya Reddy",
-                      city: "Hyderabad, TS",
-                      stars: 5,
-                      text: "Received my temple jewellery set in just 3 days. Premium weight, antique matte finish, and extremely well packaged!",
-                      tag: "Temple Jewellery"
-                    },
-                    {
-                      name: "Priya Natarajan",
-                      city: "Chennai, TN",
-                      stars: 5,
-                      text: "Soft silk sarees from LS Collections are so light and comfortable for full-day events. Drapes effortlessly!",
-                      tag: "Soft Silk"
-                    },
-                    {
-                      name: "Meera Iyer",
-                      city: "Mumbai, MH",
-                      stars: 5,
-                      text: "Ordered the Pearl Scoop set along with a Banarasi silk saree. Excellent customer support and instant WhatsApp delivery updates.",
-                      tag: "Pearl Scoop Combo"
-                    },
-                    {
-                      name: "Divya Menon",
-                      city: "Kochi, KL",
-                      stars: 5,
-                      text: "The Zari work on my bridal saree was intricate and gorgeous. Everyone at the reception complimented the rich maroon color!",
-                      tag: "Bridal Zari"
-                    },
-                    {
-                      name: "Sneha Patel",
-                      city: "Ahmedabad, GJ",
-                      stars: 5,
-                      text: "Direct factory pricing is genuine. Pure handloom silk quality at half the boutique price. Super happy with my purchase!",
-                      tag: "Handloom Silk"
-                    },
-                    {
-                      name: "Pooja Agarwal",
-                      city: "New Delhi, DL",
-                      stars: 5,
-                      text: "The Kundan Choker set looks like real heirloom gold! Perfectly matched my sangeet lehenga.",
-                      tag: "Kundan Choker"
-                    },
-                    {
-                      name: "Ritu Verma",
-                      city: "Jaipur, RJ",
-                      stars: 5,
-                      text: "Fast dispatch, pristine box packaging, and genuine silk mark guarantee included. Highly recommended brand!",
-                      tag: "Pure Banarasi"
-                    },
-                    {
-                      name: "Deepika Rao",
-                      city: "Visakhapatnam, AP",
-                      stars: 5,
-                      text: "The Mulmul cottons are a lifesaver for summer festive wear. Soft, breathable, and vibrant color patterns.",
-                      tag: "Daily Cottons"
-                    },
-                    {
-                      name: "Shweta Kulkarni",
-                      city: "Pune, MH",
-                      stars: 5,
-                      text: "Love the designer scoop combos! Unique accessories that added so much charm to my traditional saree look.",
-                      tag: "Designer Scoops"
-                    }
-                  ].map((review, idx) => (
-                    <div 
-                      key={idx}
-                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[4px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-1.5 md:mb-2">
-                          <div className="flex items-center gap-1">
-                            {[...Array(review.stars)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-amber-400 text-amber-400" />
-                            ))}
-                          </div>
-                          <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] md:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                            <CheckCircle2 className="w-2.5 h-2.5 md:w-3 md:h-3 text-emerald-600" />
-                            Verified Buyer
-                          </span>
+        {/* Single Moving Marquee Row */}
+        <div className="relative w-full flex overflow-x-hidden">
+          <div className="animate-marquee flex items-center gap-4 whitespace-normal cursor-pointer py-1">
+            {[1, 2].map((loopKey) => (
+              <div key={loopKey} className="flex items-center gap-4 shrink-0">
+                {[
+                  {
+                    name: "Ananya Sharma",
+                    city: "Bengaluru, KA",
+                    stars: 5,
+                    text: "The Pure Kanjeevaram Saree I ordered for my sister's wedding was beyond stunning! The gold zari sheen and silk texture are 100% authentic.",
+                    tag: "Pure Silk Saree"
+                  },
+                  {
+                    name: "Kavya Reddy",
+                    city: "Hyderabad, TS",
+                    stars: 5,
+                    text: "Received my temple jewellery set in just 3 days. Premium weight, antique matte finish, and extremely well packaged!",
+                    tag: "Temple Jewellery"
+                  },
+                  {
+                    name: "Priya Natarajan",
+                    city: "Chennai, TN",
+                    stars: 5,
+                    text: "Soft silk sarees from LS Collections are so light and comfortable for full-day events. Drapes effortlessly!",
+                    tag: "Soft Silk"
+                  },
+                  {
+                    name: "Meera Iyer",
+                    city: "Mumbai, MH",
+                    stars: 5,
+                    text: "Ordered the Pearl Scoop set along with a Banarasi silk saree. Excellent customer support and instant WhatsApp delivery updates.",
+                    tag: "Pearl Scoop Combo"
+                  },
+                  {
+                    name: "Divya Menon",
+                    city: "Kochi, KL",
+                    stars: 5,
+                    text: "The Zari work on my bridal saree was intricate and gorgeous. Everyone at the reception complimented the rich maroon color!",
+                    tag: "Bridal Zari"
+                  },
+                  {
+                    name: "Sneha Patel",
+                    city: "Ahmedabad, GJ",
+                    stars: 5,
+                    text: "Direct factory pricing is genuine. Pure handloom silk quality at half the boutique price. Super happy with my purchase!",
+                    tag: "Handloom Silk"
+                  },
+                  {
+                    name: "Pooja Agarwal",
+                    city: "New Delhi, DL",
+                    stars: 5,
+                    text: "The Kundan Choker set looks like real heirloom gold! Perfectly matched my sangeet lehenga.",
+                    tag: "Kundan Choker"
+                  },
+                  {
+                    name: "Ritu Verma",
+                    city: "Jaipur, RJ",
+                    stars: 5,
+                    text: "Fast dispatch, pristine box packaging, and genuine silk mark guarantee included. Highly recommended brand!",
+                    tag: "Pure Banarasi"
+                  }
+                ].map((review, idx) => (
+                  <div 
+                    key={idx}
+                    className="w-[280px] sm:w-[320px] md:w-[350px] bg-white hover:bg-[#fdf0f5]/40 border border-stone-200 hover:border-[#F8BBD0] rounded-[4px] p-4 flex flex-col justify-between h-[145px] sm:h-[155px] shadow-2xs hover:shadow-sm transition-all duration-300 shrink-0"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-0.5">
+                          {[...Array(review.stars)].map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                          ))}
                         </div>
-                        <p className="text-[11px] sm:text-xs md:text-sm text-stone-700 leading-snug sm:leading-relaxed font-medium line-clamp-2 sm:line-clamp-3">
-                          "{review.text}"
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-[#F8BBD0]/40 mt-2">
-                        <div>
-                          <h4 className="text-xs font-black text-[#4A0E17] leading-none">
-                            {review.name}
-                          </h4>
-                          <span className="text-[10px] text-stone-500 font-medium">
-                            {review.city}
-                          </span>
-                        </div>
-                        <span className="text-[10px] font-bold text-[#4A0E17] bg-[#F8BBD0]/30 px-2 py-0.5 rounded-md">
-                          {review.tag}
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                          <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
+                          Verified Buyer
                         </span>
                       </div>
+                      <p className="text-xs md:text-sm text-stone-700 leading-snug font-medium line-clamp-2">
+                        "{review.text}"
+                      </p>
                     </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Row 2: Left to Right Scrolling (OPPOSITE DIRECTION - Visible on Desktop md+, Hidden on Mobile) */}
-          <div className="hidden md:flex relative w-full overflow-x-hidden">
-            <div className="animate-marquee-reverse flex items-center gap-4 whitespace-normal cursor-pointer py-1">
-              {[1, 2].map((loopKey) => (
-                <div key={loopKey} className="flex items-center gap-4 shrink-0">
-                  {[
-                    {
-                      name: "Sneha Patel",
-                      city: "Ahmedabad, GJ",
-                      stars: 5,
-                      text: "Direct factory pricing is genuine. Pure handloom silk quality at half the boutique price. Super happy with my purchase!",
-                      tag: "Handloom Silk"
-                    },
-                    {
-                      name: "Pooja Agarwal",
-                      city: "New Delhi, DL",
-                      stars: 5,
-                      text: "The Kundan Choker set looks like real heirloom gold! Perfectly matched my sangeet lehenga.",
-                      tag: "Kundan Choker"
-                    },
-                    {
-                      name: "Ritu Verma",
-                      city: "Jaipur, RJ",
-                      stars: 5,
-                      text: "Fast dispatch, pristine box packaging, and genuine silk mark guarantee included. Highly recommended brand!",
-                      tag: "Pure Banarasi"
-                    },
-                    {
-                      name: "Deepika Rao",
-                      city: "Visakhapatnam, AP",
-                      stars: 5,
-                      text: "The Mulmul cottons are a lifesaver for summer festive wear. Soft, breathable, and vibrant color patterns.",
-                      tag: "Daily Cottons"
-                    },
-                    {
-                      name: "Shweta Kulkarni",
-                      city: "Pune, MH",
-                      stars: 5,
-                      text: "Love the designer scoop combos! Unique accessories that added so much charm to my traditional saree look.",
-                      tag: "Designer Scoops"
-                    },
-                    {
-                      name: "Ananya Sharma",
-                      city: "Bengaluru, KA",
-                      stars: 5,
-                      text: "The Pure Kanjeevaram Saree I ordered for my sister's wedding was beyond stunning! The gold zari sheen and silk texture are 100% authentic.",
-                      tag: "Pure Silk Saree"
-                    },
-                    {
-                      name: "Kavya Reddy",
-                      city: "Hyderabad, TS",
-                      stars: 5,
-                      text: "Received my temple jewellery set in just 3 days. Premium weight, antique matte finish, and extremely well packaged!",
-                      tag: "Temple Jewellery"
-                    },
-                    {
-                      name: "Priya Natarajan",
-                      city: "Chennai, TN",
-                      stars: 5,
-                      text: "Soft silk sarees from LS Collections are so light and comfortable for full-day events. Drapes effortlessly!",
-                      tag: "Soft Silk"
-                    },
-                    {
-                      name: "Meera Iyer",
-                      city: "Mumbai, MH",
-                      stars: 5,
-                      text: "Ordered the Pearl Scoop set along with a Banarasi silk saree. Excellent customer support and instant WhatsApp delivery updates.",
-                      tag: "Pearl Scoop Combo"
-                    },
-                    {
-                      name: "Divya Menon",
-                      city: "Kochi, KL",
-                      stars: 5,
-                      text: "The Zari work on my bridal saree was intricate and gorgeous. Everyone at the reception complimented the rich maroon color!",
-                      tag: "Bridal Zari"
-                    }
-                  ].map((review, idx) => (
-                    <div 
-                      key={idx}
-                      className="w-[260px] sm:w-[320px] md:w-[360px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[4px] p-3 sm:p-3.5 md:p-4.5 flex flex-col justify-between h-[135px] sm:h-[145px] md:h-[175px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
-                    >
+                    <div className="flex items-center justify-between pt-2 border-t border-stone-100 mt-2">
                       <div>
-                        <div className="flex items-center justify-between mb-1.5 md:mb-2">
-                          <div className="flex items-center gap-1">
-                            {[...Array(review.stars)].map((_, i) => (
-                              <Star key={i} className="w-3 h-3 md:w-3.5 md:h-3.5 fill-amber-400 text-amber-400" />
-                            ))}
-                          </div>
-                          <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] md:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                            <CheckCircle2 className="w-2.5 h-2.5 md:w-3 md:h-3 text-emerald-600" />
-                            Verified Buyer
-                          </span>
-                        </div>
-                        <p className="text-[11px] sm:text-xs md:text-sm text-stone-700 leading-snug sm:leading-relaxed font-medium line-clamp-2 sm:line-clamp-3">
-                          "{review.text}"
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between pt-2 border-t border-[#F8BBD0]/40 mt-2">
-                        <div>
-                          <h4 className="text-xs font-black text-[#4A0E17] leading-none">
-                            {review.name}
-                          </h4>
-                          <span className="text-[10px] text-stone-500 font-medium">
-                            {review.city}
-                          </span>
-                        </div>
-                        <span className="text-[10px] font-bold text-[#4A0E17] bg-[#F8BBD0]/30 px-2 py-0.5 rounded-md">
-                          {review.tag}
+                        <h4 className="text-xs font-black text-[#4A0E17] leading-none">
+                          {review.name}
+                        </h4>
+                        <span className="text-[10px] text-stone-400 font-medium">
+                          {review.city}
                         </span>
                       </div>
+                      <span className="text-[10px] font-bold text-[#4A0E17] bg-[#F8BBD0]/30 px-2 py-0.5 rounded-md">
+                        {review.tag}
+                      </span>
                     </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
-
         </div>
       </section>
 
