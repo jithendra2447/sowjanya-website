@@ -282,46 +282,7 @@ export default function Index() {
     return () => clearInterval(sareeTimer);
   }, [sareeLuxuryBanners.length]);
 
-  // Jewellery Luxury Editorial Split Banner State & Slides
-  const [activeJewelleryLuxuryIndex, setActiveJewelleryLuxuryIndex] = useState(0);
-  const jewelleryLuxuryBanners = [
-    {
-      title: "TEMPLE JEWELLERY",
-      offer: "Min. 30% Off",
-      tag: "ANTIQUE GOLD FINISH",
-      img: "/jewellery-studio-hero-2.jpg",
-      link: "/shop?category=Jewellery"
-    },
-    {
-      title: "KUNDAN & POLKI",
-      offer: "Royal Bridal Sets",
-      tag: "ROYAL SPLENDOR",
-      img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Jewellery&search=Kundan"
-    },
-    {
-      title: "OXIDISED SILVER",
-      offer: "Everyday & Festive Grace",
-      tag: "ARTISANAL CHIC",
-      img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Jewellery&search=Silver"
-    },
-    {
-      title: "BRIDAL CHOKERS",
-      offer: "Special Heirloom Edit",
-      tag: "HERITAGE HEIRLOOM",
-      img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Jewellery&search=Choker"
-    }
-  ];
 
-  // Jewellery Luxury Banner Auto-scroll Timer
-  useEffect(() => {
-    const jewTimer = setInterval(() => {
-      setActiveJewelleryLuxuryIndex((prev) => (prev + 1) % jewelleryLuxuryBanners.length);
-    }, 3500);
-    return () => clearInterval(jewTimer);
-  }, [jewelleryLuxuryBanners.length]);
 
   const editorialSlides = [
     {
