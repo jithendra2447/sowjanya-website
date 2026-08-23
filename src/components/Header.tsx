@@ -327,41 +327,87 @@ export default function Header() {
 
       </header>
 
-      {/* Floating Bottom Navigation Bar (Mobile View - Mockup screen 2 footer) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/80 shadow-lg md:hidden flex justify-around items-center py-2 pb-5 px-3">
-        <Link to="/" className={cn("flex flex-col items-center gap-0.5 text-stone-500", pathname === "/" && "text-brand-dark")}>
-          <span className={cn("px-4 py-1.5 rounded-full flex items-center justify-center font-bold text-xs gap-1.5 transition-all", pathname === "/" ? "bg-[#120e17] text-white" : "")}>
+      {/* Floating Bottom Navigation Bar (Mobile View - Brand Maroon Theme) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#F8BBD0]/60 shadow-lg md:hidden flex justify-around items-center py-2 pb-5 px-3">
+        
+        {/* Home Tab */}
+        <Link 
+          to="/" 
+          className="flex flex-col items-center justify-center cursor-pointer"
+        >
+          <span className={cn(
+            "px-4 py-1.5 rounded-full flex items-center justify-center font-extrabold text-xs transition-all duration-200", 
+            pathname === "/" 
+              ? "bg-[#4A0E17] text-white shadow-xs" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+          )}>
             Home
           </span>
         </Link>
+
+        {/* Search Tab */}
         <button 
           onClick={() => setShowSearchModal(true)} 
-          className="flex flex-col items-center p-2 text-stone-500 hover:text-brand-dark"
+          className={cn(
+            "p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            showSearchModal 
+              ? "bg-[#4A0E17] text-white shadow-xs" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+          )}
+          aria-label="Search"
         >
-          <Search className="w-5.5 h-5.5" />
+          <Search className="w-5 h-5" />
         </button>
-        <Link to="/wishlist" className={cn("relative p-2 text-stone-500 hover:text-brand-dark", pathname === "/wishlist" && "text-brand-dark")}>
-          <Heart className="w-5.5 h-5.5" />
+
+        {/* Wishlist Tab */}
+        <Link 
+          to="/wishlist" 
+          className={cn(
+            "relative p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            pathname === "/wishlist" 
+              ? "bg-[#4A0E17] text-white shadow-xs" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+          )}
+        >
+          <Heart className="w-5 h-5" />
           {wishCount > 0 && (
-            <span className="absolute top-1.5 right-1.5 bg-red-500 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+            <span className="absolute top-1 right-1 bg-rose-600 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
               {wishCount}
             </span>
           )}
         </Link>
+
+        {/* Cart Tab */}
         <button 
           id="bottom-cart-btn"
           onClick={() => setCartDrawerOpen(true)}
-          className="relative p-2 text-stone-500 hover:text-brand-dark cursor-pointer"
+          className={cn(
+            "relative p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            cartDrawerOpen 
+              ? "bg-[#4A0E17] text-white shadow-xs" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+          )}
+          aria-label="Shopping Bag"
         >
-          <ShoppingCart className="w-5.5 h-5.5" />
+          <ShoppingCart className="w-5 h-5" />
           {totalItems > 0 && (
-            <span className="absolute top-1.5 right-1.5 bg-brand-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+            <span className="absolute top-1 right-1 bg-[#4A0E17] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold border border-white">
               {totalItems}
             </span>
           )}
         </button>
-        <Link to="/profile" className={cn("p-2 text-stone-500 hover:text-brand-dark", pathname === "/profile" && "text-brand-dark")}>
-          <User className="w-5.5 h-5.5" />
+
+        {/* Profile Tab */}
+        <Link 
+          to="/profile" 
+          className={cn(
+            "p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
+            pathname === "/profile" 
+              ? "bg-[#4A0E17] text-white shadow-xs" 
+              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
+          )}
+        >
+          <User className="w-5 h-5" />
         </Link>
       </div>
 
