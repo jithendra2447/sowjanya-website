@@ -120,7 +120,7 @@ export default function Shop() {
               </h3>
             </div>
             
-            <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 scrollbar-none snap-x">
+            <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
               {[
                 { name: "Kanjeevaram", img: "/saree-studio-hero.jpg", search: "Kanjeevaram" },
                 { name: "Banarasi", img: "/saree-studio-card-2.jpg", search: "Banarasi" },
@@ -128,7 +128,8 @@ export default function Shop() {
                 { name: "Organza", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Organza" },
                 { name: "Chanderi", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Chanderi" },
                 { name: "Bridal Zari", img: "https://images.unsplash.com/photo-1610030469668-9861807a986d?q=80&w=400&auto=format&fit=cover", search: "Bridal" },
-                { name: "Partywear", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Partywear" }
+                { name: "Partywear", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Partywear" },
+                { name: "Tussar Silk", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=400&auto=format&fit=cover", search: "Tussar" }
               ].map((subCat, idx) => (
                 <button
                   key={idx}
@@ -136,7 +137,7 @@ export default function Shop() {
                     handleCategoryChange("Sarees");
                     updateParam("search", subCat.search);
                   }}
-                  className="group relative overflow-hidden rounded-[4px] border border-stone-200 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer shrink-0 w-28 sm:w-36 md:w-44 h-36 sm:h-44 md:h-52 snap-start"
+                  className="group relative overflow-hidden rounded-[4px] border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer w-full h-36 sm:h-44 md:h-48 snap-start"
                 >
                   {/* Full-bleed picture filling the ENTIRE box */}
                   <img 
@@ -149,11 +150,11 @@ export default function Shop() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
                   {/* Text content rendered ON TOP of the picture */}
-                  <div className="relative z-10 p-3 sm:p-3.5">
-                    <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
+                  <div className="relative z-10 p-2.5 sm:p-3">
+                    <span className="inline-block px-2 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-white mb-1 shadow-2xs">
                       SAREE EDIT
                     </span>
-                    <span className="text-xs sm:text-sm md:text-base font-serif font-bold text-white tracking-wide block leading-snug drop-shadow-xs">
+                    <span className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide block leading-tight drop-shadow-xs">
                       {subCat.name}
                     </span>
                   </div>
