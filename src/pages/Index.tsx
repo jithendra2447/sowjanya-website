@@ -238,6 +238,27 @@ export default function Index() {
 
   const sareeLuxuryBanners = [
     {
+      title: "ROYAL HERITAGE",
+      offer: "Bridal & Festive Edit",
+      tag: "EXQUISITE CRAFTSMANSHIP",
+      img: "/saree-luxury-royal-group.png",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "ORGANZA",
+      offer: "Min. 35% Off",
+      tag: "MODERN SHEER DRAPES",
+      img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "KALAMKARI",
+      offer: "Hand-Printed Heritage",
+      tag: "ARTISANAL VINTAGE WEAVES",
+      img: "/saree-luxury-heritage-door.png",
+      link: "/shop?category=Sarees"
+    },
+    {
       title: "SAREES",
       offer: "Min. 50% Off",
       tag: "BRIDAL & FESTIVE WEAVES",
@@ -249,27 +270,6 @@ export default function Index() {
       offer: "Min. 40% Off",
       tag: "ROYAL GOLD ZARI SILKS",
       img: "/saree-studio-card-2.jpg",
-      link: "/shop?category=Sarees"
-    },
-    {
-      title: "BANARASI",
-      offer: "Flat 45% Off",
-      tag: "CRIMSON RED HERITAGE WEAVES",
-      img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Sarees"
-    },
-    {
-      title: "SOFT SILK",
-      offer: "Special Edit @ ₹1999",
-      tag: "MYSORE & CHANDERI COTTONS",
-      img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1200&auto=format&fit=cover",
-      link: "/shop?category=Sarees"
-    },
-    {
-      title: "ORGANZA",
-      offer: "Min. 35% Off",
-      tag: "MODERN SHEER DRAPES",
-      img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=cover",
       link: "/shop?category=Sarees"
     }
   ];
