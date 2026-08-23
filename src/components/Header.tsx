@@ -327,8 +327,8 @@ export default function Header() {
 
       </header>
 
-      {/* Floating Bottom Navigation Bar (Mobile View - Brand Pastel Pink & Maroon Floating Pill) */}
-      <div className="fixed bottom-3 left-3 right-3 z-40 bg-gradient-to-r from-white via-[#fdf0f5] to-white/95 backdrop-blur-md border border-[#F8BBD0] shadow-xl shadow-[#4A0E17]/10 rounded-full md:hidden flex justify-around items-center py-1.5 px-1.5">
+      {/* Floating Bottom Navigation Bar (Mobile View - Always Visible z-[60]) */}
+      <div className="fixed bottom-3 left-3 right-3 z-[60] bg-gradient-to-r from-white via-[#fdf0f5] to-white/95 backdrop-blur-md border border-[#F8BBD0] shadow-xl shadow-[#4A0E17]/10 rounded-full md:hidden flex justify-around items-center py-1.5 px-1.5">
         
         {/* Home Tab */}
         <Link 

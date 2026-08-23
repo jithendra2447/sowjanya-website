@@ -67,16 +67,18 @@ export default function Wishlist() {
             ))}
           </div>
         ) : (
-          <div className="bg-white p-16 rounded-[32px] neuo-flat border border-white text-center flex flex-col items-center justify-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-stone-50 flex items-center justify-center border border-stone-100 shadow-inner">
-              <Heart className="w-7 h-7 text-stone-300" />
+          <div className="bg-white p-10 sm:p-16 rounded-[32px] neuo-flat border border-[#F8BBD0]/40 text-center flex flex-col items-center justify-center space-y-4">
+            <div className="w-16 h-16 rounded-full bg-[#fdf0f5] flex items-center justify-center border border-[#F8BBD0]/60 shadow-xs">
+              <Heart className="w-7 h-7 text-[#4A0E17]" />
             </div>
             <div>
-              <h3 className="text-sm font-extrabold text-stone-800 uppercase tracking-wider">Wishlist is empty</h3>
-              <p className="text-xs text-stone-400 mt-1 max-w-[280px] mx-auto font-medium">Flag items you love and they will show up here.</p>
+              <h3 className="text-base font-extrabold text-[#4A0E17] uppercase tracking-wider">YOUR WISHLIST IS EMPTY</h3>
+              <p className="text-xs text-stone-500 mt-1 max-w-[320px] mx-auto font-medium leading-relaxed">
+                Save your favorite sarees, jewellery, and scoops to view or purchase them anytime.
+              </p>
             </div>
-            <Link to="/shop" className="px-6 py-2.5 bg-brand-dark text-white text-xs font-extrabold uppercase rounded-full shadow-md">
-              Start Exploring
+            <Link to="/shop" className="px-7 py-3 bg-[#4A0E17] hover:bg-[#380b12] text-white text-xs font-black uppercase tracking-widest rounded-full shadow-md transition-all hover:scale-105">
+              EXPLORE OUR COLLECTION
             </Link>
           </div>
         )}
