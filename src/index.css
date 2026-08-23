@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 97%; /* Soft off-white */
+    --foreground: 270 30% 15%; /* Deep violet */
+    
+    --card: 0 0% 98%;
+    --card-foreground: 270 30% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 30% 15%;
+    
+    --primary: 270 30% 20%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 270 15% 90%;
+    --secondary-foreground: 270 30% 20%;
+    
+    --muted: 270 10% 88%;
+    --muted-foreground: 270 10% 45%;
+    
+    --accent: 340 70% 85%; /* Pastel Rose */
+    --accent-foreground: 270 30% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 270 10% 85%;
+    --input: 270 10% 85%;
+    --ring: 270 30% 20%;
+    
+    --radius: 1.5rem;
+  }
+}
+
+html, body {
+  font-family: 'Plus Jakarta Sans', 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f0f2f5; /* Soft background for neumorphism contrast */
+  color: #2d1c3d;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1c4e9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b2ebf2;
+}
+
+/* Recessed Inset Card */
+.neuo-recessed {
+  box-shadow: inset 4px 4px 8px rgba(163, 177, 198, 0.35), inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+/* Floating Elevation */
+.neuo-flat {
+  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.3), -6px -6px 12px rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Neumorphic Rounded Button */
+.neuo-btn {
+  box-shadow: 3px 3px 6px rgba(163, 177, 198, 0.25), -3px -3px 6px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+.neuo-btn:active {
+  box-shadow: inset 3px 3px 6px rgba(163, 177, 198, 0.25), inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-pan {
+  animation: pan 12s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Hide scrollbars for clean carousel lists */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Smooth infinite marquee ticker */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
