@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart, Menu, X, Heart, User, ChevronDown, Search, ArrowRight, Plus, Minus, ShoppingBag, Home, Grid } from "lucide-react";
+import { ShoppingCart, Menu, X, Heart, User, ChevronDown, Search, ArrowRight, Plus, Minus, ShoppingBag, Home, Grid, Phone, Mail, MessageCircle, Instagram, Youtube } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
 import { useInventory } from "@/context/InventoryContext";
@@ -284,27 +284,122 @@ export default function Header() {
           </div>
         )}
 
-        {/* Mobile Expanded Navigation Panel */}
+        {/* Mobile Expanded Navigation Panel (Includes All Categories, Help & Policies, Contact & Socials) */}
         {mobileOpen && (
-          <nav className="md:hidden border-t border-stone-200 bg-white px-5 py-6 space-y-4 text-left shadow-lg animate-in slide-in-from-top-2">
-            <Link to="/shop?category=Sarees" className="block text-base font-bold text-stone-900 border-b border-stone-50 pb-2">
-              Sarees Collection
-            </Link>
-            <Link to="/shop?category=Jewellery" className="block text-base font-bold text-stone-900 border-b border-stone-50 pb-2">
-              Jewellery Collection
-            </Link>
-            <Link to="/shop?category=Scoops" className="block text-base font-bold text-stone-900 border-b border-stone-50 pb-2">
-              Scoops & Accents
-            </Link>
-            <Link to="/shop" className="block text-base font-bold text-stone-700">
-              Shop All
-            </Link>
-            <Link to="/about" className="block text-base font-bold text-stone-700">
-              Our Story
-            </Link>
-            <Link to="/contact" className="block text-base font-bold text-stone-700">
-              Contact Store
-            </Link>
+          <nav className="md:hidden border-t border-[#F8BBD0]/60 bg-gradient-to-b from-white via-[#fdf0f5]/80 to-white px-5 py-6 space-y-6 text-left shadow-2xl animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto pb-24">
+            
+            {/* Quick Categories */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-widest text-[#4A0E17] mb-3 pb-1 border-b border-[#F8BBD0]/60">
+                EXPLORE CATEGORIES
+              </h4>
+              <div className="space-y-2">
+                <Link 
+                  to="/shop?category=Sarees" 
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-sm font-bold text-stone-800 hover:text-[#4A0E17] py-1.5 border-b border-stone-100/60"
+                >
+                  <span>Sarees Collection</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#4A0E17]" />
+                </Link>
+                <Link 
+                  to="/shop?category=Jewellery" 
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-sm font-bold text-stone-800 hover:text-[#4A0E17] py-1.5 border-b border-stone-100/60"
+                >
+                  <span>Jewellery Collection</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#4A0E17]" />
+                </Link>
+                <Link 
+                  to="/shop?category=Scoops" 
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-sm font-bold text-stone-800 hover:text-[#4A0E17] py-1.5 border-b border-stone-100/60"
+                >
+                  <span>Scoops & Accents</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#4A0E17]" />
+                </Link>
+                <Link 
+                  to="/shop" 
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between text-sm font-bold text-stone-800 hover:text-[#4A0E17] py-1.5"
+                >
+                  <span>Shop All Products</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#4A0E17]" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Help & Policies */}
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-widest text-[#4A0E17] mb-3 pb-1 border-b border-[#F8BBD0]/60">
+                HELP & POLICIES
+              </h4>
+              <div className="grid grid-cols-2 gap-2 text-xs font-semibold text-stone-700">
+                <Link to="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#4A0E17]">
+                  • Our Story
+                </Link>
+                <Link to="/contact" onClick={() => setMobileOpen(false)} className="hover:text-[#4A0E17]">
+                  • Contact Support
+                </Link>
+                <Link to="/privacy-policy" onClick={() => setMobileOpen(false)} className="hover:text-[#4A0E17]">
+                  • Privacy Policy
+                </Link>
+                <Link to="/refund-policy" onClick={() => setMobileOpen(false)} className="hover:text-[#4A0E17]">
+                  • Refund & Returns
+                </Link>
+                <Link to="/terms" onClick={() => setMobileOpen(false)} className="hover:text-[#4A0E17]">
+                  • Terms of Service
+                </Link>
+              </div>
+            </div>
+
+            {/* Contact Store & Social Buttons */}
+            <div className="pt-2 border-t border-[#F8BBD0]/60">
+              <h4 className="text-[10px] font-black uppercase tracking-widest text-[#4A0E17] mb-3">
+                CONTACT STORE
+              </h4>
+              <div className="space-y-2 text-xs font-bold text-stone-700">
+                <a href="tel:+918639876898" className="flex items-center gap-2 text-[#4A0E17]">
+                  <Phone className="w-3.5 h-3.5 text-[#4A0E17]" />
+                  <span>+91 86398 76898</span>
+                </a>
+                <a href="mailto:support@lscollections.in" className="flex items-center gap-2 text-stone-600">
+                  <Mail className="w-3.5 h-3.5 text-stone-500" />
+                  <span>support@lscollections.in</span>
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3 mt-4 pt-3 border-t border-stone-100">
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-white border border-[#F8BBD0] text-[#4A0E17] shadow-2xs"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a 
+                  href="https://youtube.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-white border border-[#F8BBD0] text-[#4A0E17] shadow-2xs"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-4 h-4" />
+                </a>
+                <a 
+                  href={buildWhatsAppUrl("Hi LS Collections, I have a query.")} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 shadow-2xs flex items-center gap-1.5 px-3 text-xs font-bold"
+                >
+                  <MessageCircle className="w-4 h-4 fill-emerald-600" />
+                  <span>WhatsApp Chat</span>
+                </a>
+              </div>
+            </div>
+
           </nav>
         )}
 

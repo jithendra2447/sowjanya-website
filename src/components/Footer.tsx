@@ -10,8 +10,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-stone-200/80 pt-14 pb-24 md:pb-12 text-left text-stone-700">
-      <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="hidden md:block bg-white border-t border-stone-200/80 pt-14 pb-12 text-left text-stone-700">
+      <div className="max-w-[1440px] mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-10">
         
         {/* About Column */}
         <div className="space-y-4">

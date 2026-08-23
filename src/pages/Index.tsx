@@ -1252,8 +1252,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Luxury Flagship Store / Boutique Video Banner Section (Anita Dongre Style - Top-Aligned Video) */}
-      <section className="relative w-full overflow-hidden my-10 bg-black text-white h-[480px] sm:h-[540px] md:h-[620px]">
+      {/* Luxury Flagship Store / Boutique Video Banner Section (Anita Dongre Style - Sleek Compact Mobile Height) */}
+      <section className="relative w-full max-w-[1440px] mx-auto overflow-hidden my-6 sm:my-10 bg-black text-white h-[240px] sm:h-[360px] md:h-[500px] rounded-[20px] sm:rounded-[32px] border border-stone-800 shadow-lg">
         {/* Background Video aligned to top so faces are never cut off */}
         <video 
           autoPlay 
