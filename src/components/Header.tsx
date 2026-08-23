@@ -214,21 +214,21 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Mobile Header Menu Button */}
-            <div className="flex md:hidden items-center gap-3">
+            {/* Mobile Header Menu & Search Buttons */}
+            <div className="flex md:hidden items-center gap-2">
               <button 
                 onClick={() => setShowSearchModal(true)} 
-                className="p-1 text-stone-700" 
+                className="p-2 rounded-full bg-[#fdf0f5] text-[#4A0E17] hover:bg-[#4A0E17] hover:text-white border border-[#F8BBD0]/60 transition-all cursor-pointer" 
                 aria-label="Search"
               >
-                <Search className="w-5 h-5" />
+                <Search className="w-4.5 h-4.5" />
               </button>
               <button 
                 onClick={() => setMobileOpen(!mobileOpen)} 
-                className="p-1 text-stone-700" 
+                className="p-2 rounded-full bg-[#fdf0f5] text-[#4A0E17] hover:bg-[#4A0E17] hover:text-white border border-[#F8BBD0]/60 transition-all cursor-pointer" 
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
               </button>
             </div>
 
@@ -327,7 +327,7 @@ export default function Header() {
 
       </header>
 
-      {/* Floating Bottom Navigation Bar (Mobile View - Brand Maroon Theme) */}
+      {/* Floating Bottom Navigation Bar (Mobile View - 4 Clean Tabs) */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#F8BBD0]/60 shadow-lg md:hidden flex justify-around items-center py-2 pb-5 px-3">
         
         {/* Home Tab */}
@@ -344,20 +344,6 @@ export default function Header() {
             Home
           </span>
         </Link>
-
-        {/* Search Tab */}
-        <button 
-          onClick={() => setShowSearchModal(true)} 
-          className={cn(
-            "p-2.5 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer",
-            showSearchModal 
-              ? "bg-[#4A0E17] text-white shadow-xs" 
-              : "text-[#4A0E17]/80 hover:text-[#4A0E17] hover:bg-[#fdf0f5]"
-          )}
-          aria-label="Search"
-        >
-          <Search className="w-5 h-5" />
-        </button>
 
         {/* Wishlist Tab */}
         <Link 
