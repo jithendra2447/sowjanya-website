@@ -241,35 +241,35 @@ export default function Index() {
       title: "ROYAL HERITAGE",
       offer: "Bridal & Festive Edit",
       tag: "EXQUISITE CRAFTSMANSHIP",
-      img: "/saree-banner-2.jpg",
+      img: "/saree-royal-group-authentic.jpg",
       link: "/shop?category=Sarees"
     },
     {
       title: "KALAMKARI",
       offer: "Hand-Printed Vintage Weaves",
       tag: "ARTISANAL VINTAGE DRAPES",
-      img: "/saree-banner-1.jpg",
+      img: "/saree-kalamkari-authentic-drape.jpg",
       link: "/shop?category=Sarees&search=Kalamkari"
     },
     {
       title: "ROYAL ARCHWAYS",
       offer: "Pure Silks & Handlooms",
       tag: "PALACE DRAPES",
-      img: "/saree-banner-3.jpg",
+      img: "/saree-royal-archway-authentic.jpg",
       link: "/shop?category=Sarees"
     },
     {
       title: "KANJEEVARAM SILK",
       offer: "Royal Gold Zari Weaves",
       tag: "PURE HANDLOOM SILK",
-      img: "/saree-banner-4.png",
+      img: "/saree-kanjeevaram-yellow-authentic.png",
       link: "/shop?category=Sarees&search=Kanjeevaram"
     },
     {
       title: "TEMPLE DRAPES",
       offer: "Special Festive Wear @ ₹1999",
       tag: "HERITAGE SAREES",
-      img: "/saree-banner-5.jpg",
+      img: "/saree-temple-drape-authentic.jpg",
       link: "/shop?category=Sarees"
     }
   ];
@@ -608,7 +608,7 @@ export default function Index() {
                 to={sareeLuxuryBanners[activeSareeLuxuryIndex].link}
                 className="font-sans inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#4A0E17] hover:text-[#6b1422] transition-colors group cursor-pointer bg-[#fdf0f5] px-3.5 py-2 rounded-[4px] border border-[#F8BBD0]"
               >
-                <span>+ EXPLORE</span>
+                <span>SHOP SAREES</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
