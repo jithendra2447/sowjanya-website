@@ -57,8 +57,8 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="group flex flex-col justify-between bg-white rounded-[4px] border border-stone-200 shadow-xs hover:shadow-md transition-all duration-300 relative overflow-hidden h-full text-left">
       
       <div>
-        {/* Top Product Image Container (Flush to Edges) */}
-        <div className="relative w-full aspect-[3/4] bg-stone-100 overflow-hidden shrink-0">
+        {/* Top Product Image Container (Compact Picture Height Aspect 4/3) */}
+        <div className="relative w-full aspect-[4/3] bg-stone-100 overflow-hidden shrink-0">
           <Link to={`/product/${product.slug}`} className="w-full h-full block">
             <img
               src={product.image}
