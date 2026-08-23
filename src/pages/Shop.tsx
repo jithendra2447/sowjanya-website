@@ -97,16 +97,7 @@ export default function Shop() {
     <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/50 via-white to-[#fdf0f5]/30 pb-24 pt-28 md:pt-36 text-left">
       <div className="max-w-[1440px] mx-auto px-4">
         
-        {/* Active Search Filter Pill (If search query active) */}
-        {searchVal && (
-          <div className="flex items-center justify-between bg-[#fdf0f5] px-4 py-2 rounded-[4px] border border-[#F8BBD0] mb-4">
-            <span className="text-xs font-bold text-[#4A0E17]">Search query: "{searchVal}"</span>
-            <button onClick={() => updateParam("search", "")} className="text-[#4A0E17] hover:text-stone-900 cursor-pointer text-xs font-bold flex items-center gap-1">
-              <span>Clear</span>
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        )}
+
 
 
 
