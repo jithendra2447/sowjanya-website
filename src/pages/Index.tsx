@@ -6,6 +6,7 @@ import ProductCard from "@/components/ProductCard";
 import { ArrowRight, Sparkles, Clock, Percent, ShieldCheck, Heart, RefreshCw, Star, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { cn } from "@/lib/utils";
 
 export default function Index() {
   const { products } = useInventory();
@@ -233,6 +234,53 @@ export default function Index() {
   };
 
   const [activeEditorialSlide, setActiveEditorialSlide] = useState(0);
+  const [activeSareeLuxuryIndex, setActiveSareeLuxuryIndex] = useState(0);
+
+  const sareeLuxuryBanners = [
+    {
+      title: "SAREES",
+      offer: "Min. 50% Off",
+      tag: "BRIDAL & FESTIVE WEAVES",
+      img: "/saree-studio-hero.jpg",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "KANJEEVARAM",
+      offer: "Min. 40% Off",
+      tag: "ROYAL GOLD ZARI SILKS",
+      img: "/saree-studio-card-2.jpg",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "BANARASI",
+      offer: "Flat 45% Off",
+      tag: "CRIMSON RED HERITAGE WEAVES",
+      img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "SOFT SILK",
+      offer: "Special Edit @ ₹1999",
+      tag: "MYSORE & CHANDERI COTTONS",
+      img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Sarees"
+    },
+    {
+      title: "ORGANZA",
+      offer: "Min. 35% Off",
+      tag: "MODERN SHEER DRAPES",
+      img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=cover",
+      link: "/shop?category=Sarees"
+    }
+  ];
+
+  // Saree Luxury Banner Auto-scroll Timer
+  useEffect(() => {
+    const sareeTimer = setInterval(() => {
+      setActiveSareeLuxuryIndex((prev) => (prev + 1) % sareeLuxuryBanners.length);
+    }, 3500);
+    return () => clearInterval(sareeTimer);
+  }, [sareeLuxuryBanners.length]);
 
   const editorialSlides = [
     {
@@ -497,165 +545,90 @@ export default function Index() {
       </div>
 
       {/* Dedicated Saree Showcase Section with Side Saree Categories List (Compact Height) */}
+      {/* Dedicated Section: THE SAREE STUDIO (Auto-Scrolling Split Editorial Banner) */}
       <section className="max-w-[1440px] mx-auto px-4 mb-10 text-left">
-        {/* Section Header with Scroll Controls */}
-        <div className="flex items-center justify-between mb-4 px-1">
-          <h2 className="text-base sm:text-lg font-extrabold text-[#4A0E17] tracking-wide uppercase flex items-center gap-2">
-            <span>THE SAREE STUDIO</span>
-            <div className="h-0.5 bg-[#4A0E17]/20 w-24 sm:w-36 rounded-full hidden sm:block" />
-          </h2>
-
-          {/* Scroll Arrows */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scrollSareeStrip('left')}
-              className="w-7 h-7 rounded-full bg-stone-100 hover:bg-[#4A0E17] text-stone-700 hover:text-white flex items-center justify-center transition-colors border border-stone-200 shadow-2xs cursor-pointer"
-              aria-label="Scroll Left"
-            >
-              ‹
-            </button>
-            <button
-              onClick={() => scrollSareeStrip('right')}
-              className="w-7 h-7 rounded-full bg-stone-100 hover:bg-[#4A0E17] text-stone-700 hover:text-white flex items-center justify-center transition-colors border border-stone-200 shadow-2xs cursor-pointer"
-              aria-label="Scroll Right"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-4 items-stretch">
-          {/* Left/Center: Horizontally Auto-Scrollable & Drag-Scrollable Saree Collection Banners */}
-          <div 
-            ref={sareeScrollRef}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseLeave}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            className={`w-full lg:w-[73%] flex gap-4 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory scroll-smooth ${
-              isDragging ? "cursor-grabbing select-none" : "cursor-grab"
-            }`}
-          >
-            {[
-              {
-                title: "Kanjeevaram & Banarasi",
-                tag: "TRADITIONAL SILKS",
-                img: "/saree-studio-hero.jpg"
-              },
-              {
-                title: "Banarasi & Pure Zari Silk",
-                tag: "ROYAL ELEGANCE",
-                img: "/saree-studio-card-2.jpg"
-              },
-              {
-                title: "Soft Silk & Mysore Silk",
-                tag: "FESTIVE GRACE",
-                img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=cover"
-              },
-              {
-                title: "Chanderi & Mulmul Cottons",
-                tag: "DAILY COMFORT",
-                img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=cover"
-              },
-              {
-                title: "Organza & Tissue Silks",
-                tag: "MODERN SHEER",
-                img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=cover"
-              },
-              {
-                title: "Partywear & Designer Sarees",
-                tag: "GLAMOUR EDIT",
-                img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800&auto=format&fit=cover"
-              },
-              {
-                title: "Bridal Zari & Tussar Sarees",
-                tag: "HEIRLOOM WEAVES",
-                img: "https://images.unsplash.com/photo-1610030469668-9861807a986d?q=80&w=800&auto=format&fit=cover"
-              }
-            ].map((banner, i) => (
-              <Link
-                key={i}
-                to="/shop?category=Sarees"
-                className="w-[220px] sm:w-[260px] md:w-[300px] shrink-0 snap-start group relative rounded-[4px] overflow-hidden bg-stone-100 border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end h-[260px] sm:h-[280px] md:h-[300px]"
+        <div className="w-full bg-white rounded-[4px] border border-stone-200 shadow-xs overflow-hidden flex flex-col md:flex-row h-[360px] sm:h-[400px] md:h-[430px] relative">
+          
+          {/* Left Column (~70% Width): Auto-Scrolling Image Banner Slider */}
+          <div className="relative w-full md:w-[70%] h-[240px] sm:h-[280px] md:h-full bg-stone-100 overflow-hidden">
+            {sareeLuxuryBanners.map((banner, idx) => (
+              <div
+                key={idx}
+                className={cn(
+                  "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                  idx === activeSareeLuxuryIndex ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                )}
               >
-                <img 
-                  src={banner.img} 
-                  alt={banner.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                <img
+                  src={banner.img}
+                  alt={banner.title}
+                  className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-                <div className="absolute bottom-4 left-4 right-4 text-left z-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-[4px] bg-white/20 backdrop-blur-md border border-white/35 text-[9px] font-black uppercase tracking-widest text-white mb-1.5 shadow-2xs">
-                    {banner.tag}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-sans font-extrabold text-white tracking-wide uppercase drop-shadow-xs">
-                    {banner.title}
-                  </h3>
-                </div>
-              </Link>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+              </div>
             ))}
+
+            {/* Bottom Center Pagination Indicator Dots */}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-black/25 backdrop-blur-xs px-3 py-1 rounded-full border border-white/20">
+              {sareeLuxuryBanners.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveSareeLuxuryIndex(idx)}
+                  className={cn(
+                    "transition-all duration-300 rounded-full cursor-pointer",
+                    idx === activeSareeLuxuryIndex
+                      ? "w-2.5 h-2.5 bg-white scale-110"
+                      : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
+                  )}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Right Column: Saree Categories Menu List */}
-          <div className="hidden lg:flex w-full lg:w-[27%] bg-gradient-to-b from-[#fdf0f5] to-[#f8bbd0]/10 border border-[#f8bbd0]/40 rounded-[4px] p-3.5 flex-col justify-between h-[300px] shrink-0 relative overflow-hidden shadow-2xs">
-            <div 
-              ref={sareeCategoriesRef} 
-              onMouseEnter={() => setIsCategoryHovered(true)}
-              onMouseLeave={() => setIsCategoryHovered(false)}
-              className="overflow-y-auto pr-2 scrollbar-none relative z-1"
-            >
-              <h4 className="text-xs uppercase tracking-widest text-[#4A0E17] font-black mb-2.5 pb-2 border-b border-[#F8BBD0] sticky top-0 bg-[#fdf0f5] z-10 pt-0.5">
-                SAREE CATEGORIES
-              </h4>
+          {/* Right Column (~30% Width): White Luxury Editorial Card Matching Reference Image */}
+          <div className="w-full md:w-[30%] bg-white p-6 sm:p-8 md:p-10 flex flex-col justify-between items-start text-left relative z-10 border-t md:border-t-0 md:border-l border-stone-200">
+            <div className="w-full space-y-2 sm:space-y-3">
+              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].tag}
+              </span>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-wide uppercase leading-tight">
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].title}
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-stone-600 font-medium tracking-wide">
+                {sareeLuxuryBanners[activeSareeLuxuryIndex].offer}
+              </p>
 
-              <div className="space-y-0.5">
-                {[
-                  ...[
-                    { name: "Kanjeevaram Silk Sarees" },
-                    { name: "Banarasi Silk Sarees" },
-                    { name: "Soft Silk & Mysore Silk" },
-                    { name: "Organza & Tissue Sarees" },
-                    { name: "Chanderi & Linen Sarees" },
-                    { name: "Mulmul & Daily Cottons" },
-                    { name: "Partywear & Designer Sarees" },
-                    { name: "Bridal Zari Sarees" },
-                    { name: "Tussar & Kosa Silk Sarees" },
-                    { name: "Georgette & Chiffon Sarees" }
-                  ],
-                  ...[
-                    { name: "Kanjeevaram Silk Sarees" },
-                    { name: "Banarasi Silk Sarees" },
-                    { name: "Soft Silk & Mysore Silk" },
-                    { name: "Organza & Tissue Sarees" },
-                    { name: "Chanderi & Linen Sarees" },
-                    { name: "Mulmul & Daily Cottons" },
-                    { name: "Partywear & Designer Sarees" },
-                    { name: "Bridal Zari Sarees" },
-                    { name: "Tussar & Kosa Silk Sarees" },
-                    { name: "Georgette & Chiffon Sarees" }
-                  ]
-                ].map((item, i) => (
-                  <Link
-                    key={i}
-                    to={`/shop?category=Sarees`}
-                    className="block text-xs sm:text-[13px] font-semibold text-stone-700 hover:text-[#4A0E17] hover:bg-[#F8BBD0]/30 rounded-lg px-2 py-1.5 transition-all leading-snug cursor-pointer"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+              <div className="w-full h-px bg-stone-200/80 my-3 sm:my-4" />
 
-            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1 px-1">
               <Link
-                to="/shop?category=Sarees"
-                className="inline-flex items-center gap-1.5 text-xs font-black text-[#4A0E17] hover:underline uppercase tracking-widest group cursor-pointer"
+                to={sareeLuxuryBanners[activeSareeLuxuryIndex].link}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500 hover:text-stone-950 transition-colors group cursor-pointer"
               >
-                <span>VIEW ALL SAREES</span>
+                <span>+ Explore</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
+
+            {/* Bottom Right Next/Prev Control Buttons */}
+            <div className="absolute bottom-4 right-4 flex items-center gap-1 z-20">
+              <button
+                onClick={() => setActiveSareeLuxuryIndex((prev) => (prev === 0 ? sareeLuxuryBanners.length - 1 : prev - 1))}
+                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                aria-label="Previous Slide"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setActiveSareeLuxuryIndex((prev) => (prev + 1) % sareeLuxuryBanners.length)}
+                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                aria-label="Next Slide"
+              >
+                ›
+              </button>
+            </div>
           </div>
+
         </div>
       </section>
 
