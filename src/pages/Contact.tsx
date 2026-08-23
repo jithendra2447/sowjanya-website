@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, Mail, MapPin, Send, Clock, Phone, Sparkles, CheckCircle2 } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Send, Clock, Phone, Sparkles, CheckCircle2, ArrowRight, ShieldCheck, HeartHandshake, Compass } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { toast } from "sonner";
 
@@ -11,6 +11,20 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const quickTopics = [
+    { label: "👑 Bridal Saree Consultation", category: "Bridal Styling & Custom Saree Draping", defaultMsg: "Hi LS Collections, I want to book a bridal saree drape consultation for my wedding." },
+    { label: "✂️ Custom Blouse Stitching", category: "Blouse Stitching & Customization", defaultMsg: "Hi, I need custom blouse stitching and size fitting for my order." },
+    { label: "💎 Jewellery Matching Sets", category: "Jewellery Matching & Sets", defaultMsg: "Hi, I would like guidance on matching temple jewellery sets for my silk saree." },
+    { label: "📦 Order Tracking & Express Dispatch", category: "Order Tracking & Shipping", defaultMsg: "Hi, I want to track the dispatch status of my recent purchase." },
+    { label: "📍 Boutique Visit Appointment", category: "Store Visit Appointment", defaultMsg: "Hi, I would like to schedule a walk-in boutique visit at Amaravathi store." }
+  ];
+
+  const handleSelectQuickTopic = (topic: typeof quickTopics[0]) => {
+    setInquiryType(topic.category);
+    setMessage(topic.defaultMsg);
+    toast.success(`Selected topic: ${topic.label}`);
+  };
+
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !message) {
@@ -18,15 +32,14 @@ export default function Contact() {
       return;
     }
 
-    // Direct mailto link creation
-    const mailtoSubject = encodeURIComponent(`[Inquiry - ${inquiryType}] from ${name}`);
+    const mailtoSubject = encodeURIComponent(`[${inquiryType}] Inquiry from ${name}`);
     const mailtoBody = encodeURIComponent(
-      `Name: ${name}\nPhone/WhatsApp: ${phone}\nEmail: ${email || "N/A"}\nInquiry Type: ${inquiryType}\n\nMessage:\n${message}`
+      `Name: ${name}\nPhone/WhatsApp: ${phone}\nEmail: ${email || "N/A"}\nCategory: ${inquiryType}\n\nMessage:\n${message}`
     );
     window.location.href = `mailto:lscollections25@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
     
     setSubmitted(true);
-    toast.success("Opening your email client to send query to lscollections25@gmail.com!");
+    toast.success("Opening email client to send query to lscollections25@gmail.com!");
   };
 
   const handleWhatsAppSubmit = () => {
@@ -34,57 +47,120 @@ export default function Contact() {
       toast.error("Please provide your name and message details.");
       return;
     }
-    const text = `Hi LS Collections! My name is ${name} (${phone}).\nInquiry Category: ${inquiryType}\n\nMessage:\n${message}`;
+    const text = `Hi LS Collections!\nName: ${name} (${phone})\nCategory: ${inquiryType}\n\nMessage:\n${message}`;
     const link = buildWhatsAppUrl(text);
     window.open(link, "_blank");
     toast.success("Redirecting to Instant WhatsApp Concierge...");
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/60 via-white to-[#fdf0f5]/30 pb-24 pt-20 md:pt-28 text-left">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6">
-        
-        {/* Page Title Header Banner */}
-        <div className="mb-8 text-center max-w-2xl mx-auto space-y-2">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fdf0f5] border border-[#F8BBD0] text-[10px] sm:text-xs font-black uppercase tracking-widest text-[#4A0E17]">
-            <Sparkles className="w-3.5 h-3.5" /> STORE HELPDESK & STYLING CONCIERGE
+    <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/80 via-white to-[#fdf0f5]/50 pb-24 pt-16 md:pt-20 text-left font-sans">
+      
+      {/* 1. TOP EDITORIAL HERO BANNER WITH SAREE BACKGROUND */}
+      <section className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] overflow-hidden mb-12 flex items-center justify-center border-b border-[#F8BBD0]">
+        <img
+          src="/saree-royal-archway-authentic.jpg"
+          alt="LS Collections Boutique Drape"
+          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
+        />
+        {/* Dark Burgundy Tint Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4A0E17]/90 via-[#4A0E17]/75 to-[#4A0E17]/90" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center space-y-3.5">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fdf0f5]/20 backdrop-blur-md border border-[#F8BBD0]/60 text-xs font-black uppercase tracking-[0.25em] text-[#F8BBD0] shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" /> FLAGSHIP BOUTIQUE & STYLING DESK
           </span>
-          <h1 className="text-2xl sm:text-4xl font-serif font-extrabold text-[#4A0E17] uppercase tracking-wide">
-            Contact LS Collections
+          
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-tight leading-tight drop-shadow-md">
+            Personal Concierge & Support
           </h1>
-          <p className="text-xs sm:text-sm font-medium text-stone-600">
-            Visit our flagship boutique, book a bridal styling consultation, or send us your custom order requests.
+
+          <p className="text-sm sm:text-base text-[#fdf0f5]/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-xs">
+            Experience bespoke Indian ethnic luxury. Visit our Amaravathi store, schedule bridal consultations, or connect directly with our master stylists.
           </p>
+
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-white">
+            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <ShieldCheck className="w-4 h-4 text-[#F8BBD0]" /> 100% Authentic Handloom Silk
+            </span>
+            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <Clock className="w-4 h-4 text-[#F8BBD0]" /> 10:00 AM – 7:00 PM IST (Mon - Sun)
+            </span>
+            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+              <HeartHandshake className="w-4 h-4 text-[#F8BBD0]" /> Walk-ins & Appointments Welcome
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
+
+        {/* 2. INTERACTIVE QUICK-FILL TOPIC BADGES */}
+        <div className="mb-10 bg-white p-5 sm:p-6 rounded-[4px] border border-[#F8BBD0]/80 shadow-xs space-y-3">
+          <div className="flex items-center justify-between">
+            <h3 className="text-xs font-black uppercase tracking-widest text-[#4A0E17] flex items-center gap-2">
+              <Compass className="w-4 h-4 text-[#4A0E17]" />
+              <span>QUICK-SELECT YOUR INQUIRY TOPIC</span>
+            </h3>
+            <span className="text-[11px] font-bold text-stone-400 uppercase tracking-wider">Click any pill to auto-fill form</span>
+          </div>
+
+          <div className="flex flex-wrap gap-2 pt-1">
+            {quickTopics.map((topic, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleSelectQuickTopic(topic)}
+                className="px-3.5 py-2 rounded-[4px] bg-[#fdf0f5] hover:bg-[#4A0E17] text-[#4A0E17] hover:text-white border border-[#F8BBD0] text-xs font-bold transition-all duration-300 shadow-2xs hover:shadow-xs cursor-pointer flex items-center gap-1.5"
+              >
+                <span>{topic.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* 2-Column Layout */}
+        {/* 3. MAIN 2-COLUMN SECTION: FORM + STORE CARDS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column (7 cols): Contact Us Form */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0]/80 shadow-md space-y-6">
+          {/* Left Column (7 cols): Contact Form */}
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-md space-y-6 relative overflow-hidden">
             
-            <div className="border-b border-[#F8BBD0]/50 pb-4">
-              <h2 className="text-base sm:text-lg font-serif font-bold text-[#4A0E17] tracking-wider uppercase">
-                SEND US A MESSAGE
-              </h2>
-              <p className="text-xs font-medium text-stone-500 mt-0.5">
-                Fill out the form below and our customer desk will respond within 2-4 business hours.
-              </p>
+            <div className="border-b border-[#F8BBD0]/60 pb-4 flex items-center justify-between">
+              <div>
+                <h2 className="text-lg sm:text-xl font-serif font-extrabold text-[#4A0E17] tracking-wider uppercase">
+                  SEND US A DIRECT MESSAGE
+                </h2>
+                <p className="text-xs font-semibold text-stone-500 mt-0.5">
+                  Fill out your details below and our customer desk will respond within 2–4 hours.
+                </p>
+              </div>
+              <div className="hidden sm:block text-right">
+                <span className="text-[10px] font-extrabold text-[#4A0E17] bg-[#fdf0f5] px-2.5 py-1 rounded-[4px] border border-[#F8BBD0] uppercase tracking-wider">
+                  FAST RESPONSE DESK
+                </span>
+              </div>
             </div>
 
             {submitted ? (
-              <div className="bg-[#fdf0f5] border border-[#F8BBD0] p-6 rounded-[4px] text-center space-y-3">
-                <CheckCircle2 className="w-10 h-10 text-[#4A0E17] mx-auto" />
-                <h3 className="text-base font-serif font-bold text-[#4A0E17]">Thank You, {name}!</h3>
-                <p className="text-xs text-stone-700 font-medium max-w-md mx-auto">
-                  Your message has been formatted. If your email application didn't open automatically, you can also reach us directly via WhatsApp below.
+              <div className="bg-[#fdf0f5] border border-[#F8BBD0] p-8 rounded-[4px] text-center space-y-4">
+                <CheckCircle2 className="w-12 h-12 text-[#4A0E17] mx-auto" />
+                <h3 className="text-xl font-serif font-bold text-[#4A0E17]">Inquiry Prepared, {name}!</h3>
+                <p className="text-xs text-stone-700 font-medium max-w-md mx-auto leading-relaxed">
+                  Your message has been compiled for <strong>lscollections25@gmail.com</strong>. If your email application didn't launch automatically, click below to chat with our instant WhatsApp concierge.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-2 px-5 py-2 bg-[#4A0E17] text-white text-xs font-bold uppercase tracking-wider rounded-[4px]"
-                >
-                  Send Another Inquiry
-                </button>
+                <div className="pt-2 flex justify-center gap-3">
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="px-5 py-2.5 bg-[#4A0E17] text-white text-xs font-bold uppercase tracking-wider rounded-[4px] shadow-xs"
+                  >
+                    Send Another Inquiry
+                  </button>
+                  <button
+                    onClick={handleWhatsAppSubmit}
+                    className="px-5 py-2.5 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider rounded-[4px] shadow-xs flex items-center gap-1.5"
+                  >
+                    <MessageCircle className="w-4 h-4" fill="currentColor" /> Chat WhatsApp
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleEmailSubmit} className="space-y-4 text-xs font-bold text-stone-800">
@@ -92,7 +168,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Full Name */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-name" className="uppercase tracking-wider text-[11px] text-[#4A0E17]">
+                    <label htmlFor="cont-name" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
                       Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -102,13 +178,13 @@ export default function Contact() {
                       placeholder="e.g. Sowjanya Lakshmi"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0]/80 rounded-[4px] px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
 
                   {/* Phone / WhatsApp */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-phone" className="uppercase tracking-wider text-[11px] text-[#4A0E17]">
+                    <label htmlFor="cont-phone" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
                       Phone / WhatsApp No. <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -118,7 +194,7 @@ export default function Contact() {
                       placeholder="+91 86398 76898"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0]/80 rounded-[4px] px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -126,7 +202,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Email Address */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-email" className="uppercase tracking-wider text-[11px] text-[#4A0E17]">
+                    <label htmlFor="cont-email" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
                       Email Address (Optional)
                     </label>
                     <input
@@ -135,20 +211,20 @@ export default function Contact() {
                       placeholder="name@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0]/80 rounded-[4px] px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
 
-                  {/* Inquiry Type */}
+                  {/* Inquiry Category */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-type" className="uppercase tracking-wider text-[11px] text-[#4A0E17]">
+                    <label htmlFor="cont-type" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
                       Inquiry Category
                     </label>
                     <select
                       id="cont-type"
                       value={inquiryType}
                       onChange={(e) => setInquiryType(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0]/80 rounded-[4px] px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     >
                       <option value="Bridal Styling & Custom Saree Draping">Bridal Styling & Custom Saree Draping</option>
                       <option value="Blouse Stitching & Customization">Blouse Stitching & Customization</option>
@@ -162,7 +238,7 @@ export default function Contact() {
 
                 {/* Message */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cont-msg" className="uppercase tracking-wider text-[11px] text-[#4A0E17]">
+                  <label htmlFor="cont-msg" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
                     Message / Query Details <span className="text-rose-500">*</span>
                   </label>
                   <textarea
@@ -172,26 +248,26 @@ export default function Contact() {
                     placeholder="Provide details about your saree drape preferences, color customization, event dates, or product codes..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0]/80 rounded-[4px] px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white resize-none"
+                    className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white resize-none transition-all"
                   />
                 </div>
 
-                {/* Action Buttons: Email & WhatsApp */}
-                <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Dual Action CTA Buttons */}
+                <div className="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#4A0E17] hover:bg-[#6b1422] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#F8BBD0]"
+                    className="w-full py-3.5 bg-[#4A0E17] hover:bg-[#6b1422] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#F8BBD0]"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 text-white" />
                     <span>Send Message (Email)</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={handleWhatsAppSubmit}
-                    className="w-full py-3 bg-[#25D366] hover:bg-[#128C7E] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
-                    <MessageCircle className="w-4 h-4" fill="currentColor" />
+                    <MessageCircle className="w-4 h-4 text-white" fill="currentColor" />
                     <span>Chat on WhatsApp</span>
                   </button>
                 </div>
@@ -201,40 +277,40 @@ export default function Contact() {
 
           </div>
 
-          {/* Right Column (5 cols): Store Info Card */}
-          <div className="lg:col-span-5 space-y-5">
+          {/* Right Column (5 cols): Store Details & Cards */}
+          <div className="lg:col-span-5 space-y-6">
             
-            {/* Flagship Boutique Store Card */}
-            <div className="bg-[#4A0E17] text-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-md space-y-5 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+            {/* Flagship Store Card */}
+            <div className="bg-[#4A0E17] text-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-md space-y-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[#F8BBD0]/10 rounded-full blur-3xl pointer-events-none" />
 
               <div>
-                <span className="text-[10px] font-black tracking-[0.2em] text-[#F8BBD0] uppercase block">
+                <span className="text-[10px] font-black tracking-[0.25em] text-[#F8BBD0] uppercase block">
                   FLAGSHIP BOUTIQUE STORE
                 </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide uppercase mt-1">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-wide uppercase mt-1">
                   LS Collections
                 </h3>
               </div>
 
-              {/* Address */}
-              <div className="space-y-1.5 text-xs text-[#fdf0f5] leading-relaxed pt-2 border-t border-[#F8BBD0]/30">
-                <p className="font-semibold text-white flex items-start gap-1.5">
+              {/* Exact Address */}
+              <div className="space-y-2 text-xs text-[#fdf0f5] leading-relaxed pt-3 border-t border-[#F8BBD0]/30">
+                <p className="font-semibold text-white flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-[#F8BBD0] shrink-0 mt-0.5" />
                   <span>📍 LS Collections Near Busstand ,Towards Sattenapalli Road Amaravathi 522020</span>
                 </p>
-                <p className="text-[11px] font-medium text-[#F8BBD0] pl-5 italic">
+                <p className="text-[11px] font-medium text-[#F8BBD0] pl-6 italic">
                   (Walk-ins & Bridal Styling Appointments Welcome)
                 </p>
               </div>
 
               {/* Timings & Phone */}
-              <div className="space-y-2 pt-3 border-t border-[#F8BBD0]/30 text-xs font-medium text-[#fdf0f5]">
-                <div className="flex items-center gap-2">
+              <div className="space-y-2.5 pt-3 border-t border-[#F8BBD0]/30 text-xs font-medium text-[#fdf0f5]">
+                <div className="flex items-center gap-2.5">
                   <Clock className="w-4 h-4 text-[#F8BBD0] shrink-0" />
                   <span>Timings: Monday to Sunday: 10:00 AM – 7:00 PM IST</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <Phone className="w-4 h-4 text-[#F8BBD0] shrink-0" />
                   <span>Store Desk / Phone: <a href="tel:+918639876898" className="font-bold text-white hover:underline">+91 86398 76898</a></span>
                 </div>
@@ -242,11 +318,12 @@ export default function Contact() {
 
             </div>
 
-            {/* Email Support & Instant WhatsApp Concierge Card */}
-            <div className="bg-white p-6 rounded-[4px] border border-[#F8BBD0]/80 shadow-xs space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#fdf0f5] flex items-center justify-center text-[#4A0E17] border border-[#F8BBD0] shrink-0">
-                  <Mail className="w-5 h-5" />
+            {/* Email Support & WhatsApp Card */}
+            <div className="bg-white p-6 rounded-[4px] border border-[#F8BBD0] shadow-xs space-y-4">
+              
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-[4px] bg-[#fdf0f5] flex items-center justify-center text-[#4A0E17] border border-[#F8BBD0] shrink-0">
+                  <Mail className="w-5.5 h-5.5" />
                 </div>
                 <div className="min-w-0">
                   <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block">Email Support</span>
@@ -261,9 +338,9 @@ export default function Contact() {
 
               <div className="w-full h-px bg-[#F8BBD0]/40" />
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] border border-[#25D366]/40 shrink-0">
-                  <MessageCircle className="w-5 h-5" fill="currentColor" />
+              <div className="flex items-center gap-3.5">
+                <div className="w-11 h-11 rounded-[4px] bg-[#25D366]/10 flex items-center justify-center text-[#25D366] border border-[#25D366]/40 shrink-0">
+                  <MessageCircle className="w-5.5 h-5.5" fill="currentColor" />
                 </div>
                 <div className="min-w-0">
                   <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block">Instant WhatsApp Concierge</span>
@@ -277,6 +354,7 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
+
             </div>
 
           </div>
