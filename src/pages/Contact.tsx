@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle, Mail, MapPin, Send, Clock, Phone, Sparkles, CheckCircle2, ArrowRight, ShieldCheck, HeartHandshake, Compass } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Send, Clock, Phone, Sparkles, CheckCircle2, ShieldCheck, HeartHandshake, Compass } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { toast } from "sonner";
 
@@ -15,7 +15,7 @@ export default function Contact() {
     { label: "👑 Bridal Saree Consultation", category: "Bridal Styling & Custom Saree Draping", defaultMsg: "Hi LS Collections, I want to book a bridal saree drape consultation for my wedding." },
     { label: "✂️ Custom Blouse Stitching", category: "Blouse Stitching & Customization", defaultMsg: "Hi, I need custom blouse stitching and size fitting for my order." },
     { label: "💎 Jewellery Matching Sets", category: "Jewellery Matching & Sets", defaultMsg: "Hi, I would like guidance on matching temple jewellery sets for my silk saree." },
-    { label: "📦 Order Tracking & Express Dispatch", category: "Order Tracking & Shipping", defaultMsg: "Hi, I want to track the dispatch status of my recent purchase." },
+    { label: "📦 Order Tracking & Shipping", category: "Order Tracking & Shipping", defaultMsg: "Hi, I want to track the dispatch status of my recent purchase." },
     { label: "📍 Boutique Visit Appointment", category: "Store Visit Appointment", defaultMsg: "Hi, I would like to schedule a walk-in boutique visit at Amaravathi store." }
   ];
 
@@ -56,38 +56,30 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/80 via-white to-[#fdf0f5]/50 pb-24 pt-16 md:pt-20 text-left font-sans">
       
-      {/* 1. TOP EDITORIAL HERO BANNER WITH SAREE BACKGROUND */}
-      <section className="relative w-full h-[320px] sm:h-[380px] md:h-[420px] overflow-hidden mb-12 flex items-center justify-center border-b border-[#F8BBD0]">
-        <img
-          src="/saree-royal-archway-authentic.jpg"
-          alt="LS Collections Boutique Drape"
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
-        />
-        {/* Dark Burgundy Tint Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4A0E17]/90 via-[#4A0E17]/75 to-[#4A0E17]/90" />
-
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center space-y-3.5">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fdf0f5]/20 backdrop-blur-md border border-[#F8BBD0]/60 text-xs font-black uppercase tracking-[0.25em] text-[#F8BBD0] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" /> FLAGSHIP BOUTIQUE & STYLING DESK
+      {/* 1. HERO BANNER USING EXACT HOME PAGE BG (/home-bg.jpg) AND BRAND COLORS */}
+      <section className="relative w-full bg-[url('/home-bg.jpg')] bg-cover bg-center bg-no-repeat py-12 md:py-16 px-4 sm:px-8 border-b border-[#F8BBD0] shadow-xs mb-10">
+        <div className="max-w-[1200px] mx-auto text-center space-y-3.5">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#fdf0f5] border border-[#F8BBD0] text-xs font-black uppercase tracking-[0.2em] text-[#4A0E17] shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5" /> STORE HELPDESK & STYLING CONCIERGE
           </span>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-black text-white uppercase tracking-tight leading-tight drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-extrabold text-[#4A0E17] uppercase tracking-normal">
             Personal Concierge & Support
           </h1>
 
-          <p className="text-sm sm:text-base text-[#fdf0f5]/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-xs">
+          <p className="text-xs sm:text-sm md:text-base text-[#2D1C3D]/80 font-medium max-w-2xl mx-auto leading-relaxed">
             Experience bespoke Indian ethnic luxury. Visit our Amaravathi store, schedule bridal consultations, or connect directly with our master stylists.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs font-bold text-white">
-            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-              <ShieldCheck className="w-4 h-4 text-[#F8BBD0]" /> 100% Authentic Handloom Silk
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 text-xs font-bold text-[#4A0E17]">
+            <span className="flex items-center gap-1.5 bg-[#fdf0f5]/90 border border-[#F8BBD0] px-3.5 py-1.5 rounded-full shadow-2xs">
+              <ShieldCheck className="w-4 h-4 text-[#4A0E17]" /> 100% Authentic Handloom Silk
             </span>
-            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-              <Clock className="w-4 h-4 text-[#F8BBD0]" /> 10:00 AM – 7:00 PM IST (Mon - Sun)
+            <span className="flex items-center gap-1.5 bg-[#fdf0f5]/90 border border-[#F8BBD0] px-3.5 py-1.5 rounded-full shadow-2xs">
+              <Clock className="w-4 h-4 text-[#4A0E17]" /> 10:00 AM – 7:00 PM IST (Mon - Sun)
             </span>
-            <span className="flex items-center gap-1.5 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
-              <HeartHandshake className="w-4 h-4 text-[#F8BBD0]" /> Walk-ins & Appointments Welcome
+            <span className="flex items-center gap-1.5 bg-[#fdf0f5]/90 border border-[#F8BBD0] px-3.5 py-1.5 rounded-full shadow-2xs">
+              <HeartHandshake className="w-4 h-4 text-[#4A0E17]" /> Walk-ins & Appointments Welcome
             </span>
           </div>
         </div>
@@ -95,8 +87,8 @@ export default function Contact() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
 
-        {/* 2. INTERACTIVE QUICK-FILL TOPIC BADGES */}
-        <div className="mb-10 bg-white p-5 sm:p-6 rounded-[4px] border border-[#F8BBD0]/80 shadow-xs space-y-3">
+        {/* 2. INTERACTIVE QUICK-SELECT TOPIC BADGES */}
+        <div className="mb-8 bg-white p-5 sm:p-6 rounded-[4px] border border-[#F8BBD0]/80 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-black uppercase tracking-widest text-[#4A0E17] flex items-center gap-2">
               <Compass className="w-4 h-4 text-[#4A0E17]" />
@@ -122,14 +114,14 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column (7 cols): Contact Form */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-md space-y-6 relative overflow-hidden">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-sm space-y-6 relative">
             
             <div className="border-b border-[#F8BBD0]/60 pb-4 flex items-center justify-between">
               <div>
-                <h2 className="text-lg sm:text-xl font-serif font-extrabold text-[#4A0E17] tracking-wider uppercase">
+                <h2 className="text-lg sm:text-xl font-serif font-bold text-[#4A0E17] tracking-wider uppercase">
                   SEND US A DIRECT MESSAGE
                 </h2>
-                <p className="text-xs font-semibold text-stone-500 mt-0.5">
+                <p className="text-xs font-semibold text-[#2D1C3D]/70 mt-0.5">
                   Fill out your details below and our customer desk will respond within 2–4 hours.
                 </p>
               </div>
@@ -144,8 +136,8 @@ export default function Contact() {
               <div className="bg-[#fdf0f5] border border-[#F8BBD0] p-8 rounded-[4px] text-center space-y-4">
                 <CheckCircle2 className="w-12 h-12 text-[#4A0E17] mx-auto" />
                 <h3 className="text-xl font-serif font-bold text-[#4A0E17]">Inquiry Prepared, {name}!</h3>
-                <p className="text-xs text-stone-700 font-medium max-w-md mx-auto leading-relaxed">
-                  Your message has been compiled for <strong>lscollections25@gmail.com</strong>. If your email application didn't launch automatically, click below to chat with our instant WhatsApp concierge.
+                <p className="text-xs text-[#2D1C3D] font-medium max-w-md mx-auto leading-relaxed">
+                  Your message has been compiled for <strong>lscollections25@gmail.com</strong>. If your email client did not open automatically, click below to chat with our instant WhatsApp concierge.
                 </p>
                 <div className="pt-2 flex justify-center gap-3">
                   <button
@@ -163,7 +155,7 @@ export default function Contact() {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleEmailSubmit} className="space-y-4 text-xs font-bold text-stone-800">
+              <form onSubmit={handleEmailSubmit} className="space-y-4 text-xs font-bold text-[#2D1C3D]">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Full Name */}
@@ -280,39 +272,38 @@ export default function Contact() {
           {/* Right Column (5 cols): Store Details & Cards */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Flagship Store Card */}
-            <div className="bg-[#4A0E17] text-white p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-md space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-[#F8BBD0]/10 rounded-full blur-3xl pointer-events-none" />
-
+            {/* Flagship Store Card (Clean Soft Blush Brand Card with Imperial Burgundy Text) */}
+            <div className="bg-gradient-to-b from-[#fdf0f5] to-white text-[#2D1C3D] p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-sm space-y-5">
+              
               <div>
-                <span className="text-[10px] font-black tracking-[0.25em] text-[#F8BBD0] uppercase block">
+                <span className="text-[10px] font-black tracking-[0.25em] text-[#4A0E17] uppercase block">
                   FLAGSHIP BOUTIQUE STORE
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-wide uppercase mt-1">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17] tracking-wide uppercase mt-1">
                   LS Collections
                 </h3>
               </div>
 
               {/* Exact Address */}
-              <div className="space-y-2 text-xs text-[#fdf0f5] leading-relaxed pt-3 border-t border-[#F8BBD0]/30">
-                <p className="font-semibold text-white flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-[#F8BBD0] shrink-0 mt-0.5" />
+              <div className="space-y-2 text-xs text-[#2D1C3D] leading-relaxed pt-3 border-t border-[#F8BBD0]/60">
+                <p className="font-semibold text-[#4A0E17] flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-[#4A0E17] shrink-0 mt-0.5" />
                   <span>📍 LS Collections Near Busstand ,Towards Sattenapalli Road Amaravathi 522020</span>
                 </p>
-                <p className="text-[11px] font-medium text-[#F8BBD0] pl-6 italic">
+                <p className="text-[11px] font-bold text-stone-600 pl-6 italic">
                   (Walk-ins & Bridal Styling Appointments Welcome)
                 </p>
               </div>
 
               {/* Timings & Phone */}
-              <div className="space-y-2.5 pt-3 border-t border-[#F8BBD0]/30 text-xs font-medium text-[#fdf0f5]">
+              <div className="space-y-2.5 pt-3 border-t border-[#F8BBD0]/60 text-xs font-semibold text-[#2D1C3D]">
                 <div className="flex items-center gap-2.5">
-                  <Clock className="w-4 h-4 text-[#F8BBD0] shrink-0" />
+                  <Clock className="w-4 h-4 text-[#4A0E17] shrink-0" />
                   <span>Timings: Monday to Sunday: 10:00 AM – 7:00 PM IST</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-[#F8BBD0] shrink-0" />
-                  <span>Store Desk / Phone: <a href="tel:+918639876898" className="font-bold text-white hover:underline">+91 86398 76898</a></span>
+                  <Phone className="w-4 h-4 text-[#4A0E17] shrink-0" />
+                  <span>Store Desk / Phone: <a href="tel:+918639876898" className="font-extrabold text-[#4A0E17] hover:underline">+91 86398 76898</a></span>
                 </div>
               </div>
 
