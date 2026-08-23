@@ -92,13 +92,13 @@ export default function ProductCard({ product }: ProductCardProps) {
           <button
             onClick={onHeart}
             className={cn(
-              "w-full border border-stone-300 rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all cursor-pointer",
+              "w-full border rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-2xs hover:shadow-xs hover:scale-[1.02] active:scale-95",
               saved 
-                ? "bg-red-50 border-red-200 text-red-600" 
-                : "bg-white text-stone-800 hover:bg-stone-50 hover:border-stone-400"
+                ? "bg-[#fdf0f5] border-[#4A0E17] text-[#4A0E17]" 
+                : "bg-white border-[#4A0E17] text-[#4A0E17] hover:bg-[#fdf0f5]"
             )}
           >
-            <Heart className={cn("w-3.5 h-3.5", saved ? "fill-red-500 text-red-500" : "text-stone-700")} />
+            <Heart className={cn("w-3.5 h-3.5 transition-transform duration-300", saved ? "fill-[#4A0E17] text-[#4A0E17]" : "text-[#4A0E17]")} />
             <span>{saved ? "SAVED" : "WISHLIST"}</span>
           </button>
 
@@ -107,13 +107,13 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={onAddToCart}
             disabled={isAdding || isSoldOut}
             className={cn(
-              "w-full border rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs",
+              "w-full border rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-2xs hover:shadow-md hover:scale-[1.02] active:scale-95",
               isSoldOut
                 ? "bg-stone-200 border-stone-300 text-stone-500 cursor-not-allowed"
-                : "bg-[#4A0E17] border-[#4A0E17] text-white hover:bg-[#6b1422] active:scale-98"
+                : "bg-[#4A0E17] border-[#4A0E17] text-white hover:bg-[#6b1422] hover:border-[#6b1422]"
             )}
           >
-            <ShoppingBag className="w-3.5 h-3.5 text-white" />
+            <ShoppingBag className="w-3.5 h-3.5 text-white transition-transform duration-300" />
             <span>{isAdding ? "ADDED" : isSoldOut ? "SOLD OUT" : "ADD TO CART"}</span>
           </button>
         </div>
