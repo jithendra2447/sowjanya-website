@@ -126,7 +126,7 @@ export default function Shop() {
               key={cat}
               onClick={() => handleCategoryChange(cat)}
               className={cn(
-                "px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer whitespace-nowrap shrink-0",
+                "px-5 py-2.5 rounded-[4px] text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer whitespace-nowrap shrink-0",
                 category === cat
                   ? "bg-[#4A0E17] text-white border-[#4A0E17] shadow-md scale-105"
                   : "bg-white text-stone-700 border-[#F8BBD0]/60 hover:bg-[#fdf0f5] hover:text-[#4A0E17] hover:border-[#F8BBD0]"
@@ -136,6 +136,46 @@ export default function Shop() {
             </button>
           ))}
         </div>
+
+        {/* Circular Subcategories Carousel Section (Matching User Reference Screenshot) */}
+        {(category === "All" || category === "Sarees") && (
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <h3 className="text-sm font-extrabold uppercase tracking-widest text-[#4A0E17] flex items-center gap-2">
+                <span>SAREE COLLECTIONS</span>
+                <div className="h-0.5 bg-[#4A0E17]/20 w-16 sm:w-28 rounded-full hidden sm:block" />
+              </h3>
+            </div>
+            
+            <div className="flex gap-3 sm:gap-4 overflow-x-auto pb-3 scrollbar-none snap-x">
+              {[
+                { name: "Kanjeevaram", img: "/saree-studio-hero.jpg", search: "Kanjeevaram" },
+                { name: "Banarasi", img: "/saree-studio-card-2.jpg", search: "Banarasi" },
+                { name: "Soft Silk", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Soft Silk" },
+                { name: "Organza", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Organza" },
+                { name: "Chanderi", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Chanderi" },
+                { name: "Bridal Zari", img: "https://images.unsplash.com/photo-1610030469668-9861807a986d?q=80&w=400&auto=format&fit=cover", search: "Bridal" },
+                { name: "Partywear", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Partywear" }
+              ].map((subCat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    handleCategoryChange("Sarees");
+                    updateParam("search", subCat.search);
+                  }}
+                  className="bg-[#f8f7f5] p-3 sm:p-4 rounded-[4px] border border-stone-200/80 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer group shrink-0 w-28 sm:w-36 md:w-40 snap-start"
+                >
+                  <div className="w-18 h-18 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-white shadow-xs mb-2 transition-transform duration-500 group-hover:scale-105 bg-gradient-to-tr from-[#fdf0f5] to-[#f8bbd0]/30 flex items-center justify-center shrink-0">
+                    <img src={subCat.img} alt={subCat.name} className="w-full h-full object-cover" />
+                  </div>
+                  <span className="text-xs sm:text-sm font-serif font-bold text-stone-900 line-clamp-1 group-hover:text-[#4A0E17] transition-colors mt-1">
+                    {subCat.name}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-col lg:flex-row gap-6 items-start">
           
