@@ -997,15 +997,11 @@ export default function Index() {
       <section className="w-full mt-6 mb-1 py-4 sm:py-6 bg-gradient-to-b from-white via-[#fdf0f5]/60 to-white overflow-hidden text-left border-y border-[#F8BBD0]/40">
         <div className="max-w-[1440px] mx-auto px-4 mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fdf0f5] border border-[#F8BBD0]/60 text-[10px] sm:text-[11px] font-black text-[#4A0E17] tracking-widest uppercase mb-1">
-              <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-              <span>4.9 / 5.0 RATED BY 2,450+ CLIENTS</span>
-            </div>
-            <h2 className="text-lg sm:text-xl font-sans font-extrabold text-[#4A0E17] tracking-wider uppercase">
-              CUSTOMER REVIEWS & LOVE
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17]">
+              Customer Reviews & Love
             </h2>
-            <p className="text-[11px] sm:text-xs font-medium text-stone-500 tracking-wider uppercase mt-0.5">
-              REAL EXPERIENCES FROM OUR VERIFIED BUYERS ACROSS INDIA
+            <p className="text-xs sm:text-sm font-medium text-stone-600 mt-1">
+              Real experiences from our verified buyers across India
             </p>
           </div>
         </div>
