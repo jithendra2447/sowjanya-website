@@ -110,7 +110,7 @@ export default function Shop() {
 
 
 
-        {/* Circular Subcategories Carousel Section (Matching User Reference Screenshot) */}
+        {/* Subcategories Banner Section */}
         {(category === "All" || category === "Sarees") && (
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3 px-1">
@@ -118,18 +118,25 @@ export default function Shop() {
                 <span>SAREE COLLECTIONS</span>
                 <div className="h-0.5 bg-[#4A0E17]/20 w-16 sm:w-28 rounded-full hidden sm:block" />
               </h3>
+              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                12 Categories
+              </span>
             </div>
             
-            <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
+            <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] lg:auto-cols-[230px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
               {[
                 { name: "Kanjeevaram", img: "/saree-studio-hero.jpg", search: "Kanjeevaram" },
                 { name: "Banarasi", img: "/saree-studio-card-2.jpg", search: "Banarasi" },
                 { name: "Soft Silk", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Soft Silk" },
                 { name: "Organza", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Organza" },
                 { name: "Chanderi", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Chanderi" },
-                { name: "Bridal Zari", img: "https://images.unsplash.com/photo-1610030469668-9861807a986d?q=80&w=400&auto=format&fit=cover", search: "Bridal" },
+                { name: "Bridal Zari", img: "/saree-studio-hero.jpg", search: "Bridal" },
                 { name: "Partywear", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Partywear" },
-                { name: "Tussar Silk", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=400&auto=format&fit=cover", search: "Tussar" }
+                { name: "Tussar Silk", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=400&auto=format&fit=cover", search: "Tussar" },
+                { name: "Mysore Silk", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Mysore" },
+                { name: "Linen Cotton", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Linen" },
+                { name: "Georgette", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Georgette" },
+                { name: "Paithani", img: "/saree-studio-card-2.jpg", search: "Paithani" }
               ].map((subCat, idx) => (
                 <button
                   key={idx}
