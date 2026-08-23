@@ -97,45 +97,18 @@ export default function Shop() {
     <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/50 via-white to-[#fdf0f5]/30 pb-24 pt-28 md:pt-36 text-left">
       <div className="max-w-[1440px] mx-auto px-4">
         
-        {/* Page Header Banner */}
-        <div className="bg-gradient-to-r from-white via-[#fdf0f5] to-white p-6 sm:p-7 rounded-[24px] border border-[#F8BBD0]/60 shadow-xs mb-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17]">
-                {category === "All" ? "Catalog Showcase" : `${category} Collection`}
-              </h1>
-              <p className="text-xs sm:text-sm font-medium text-stone-600 mt-1">
-                Explore our handpicked collection of premium sarees, gold matte temple jewellery, and scoops.
-              </p>
-            </div>
-            {searchVal && (
-              <div className="flex items-center gap-2 bg-[#fdf0f5] px-3.5 py-1.5 rounded-full border border-[#F8BBD0]">
-                <span className="text-xs font-bold text-[#4A0E17]">Search: "{searchVal}"</span>
-                <button onClick={() => updateParam("search", "")} className="text-[#4A0E17] hover:text-stone-900 cursor-pointer">
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Category Tabs Strip */}
-        <div className="flex gap-2.5 overflow-x-auto pb-4 scrollbar-none mb-6">
-          {["All", "Sarees", "Jewellery", "Scoops"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleCategoryChange(cat)}
-              className={cn(
-                "px-5 py-2.5 rounded-[4px] text-xs font-bold uppercase tracking-wider border transition-all cursor-pointer whitespace-nowrap shrink-0",
-                category === cat
-                  ? "bg-[#4A0E17] text-white border-[#4A0E17] shadow-md scale-105"
-                  : "bg-white text-stone-700 border-[#F8BBD0]/60 hover:bg-[#fdf0f5] hover:text-[#4A0E17] hover:border-[#F8BBD0]"
-              )}
-            >
-              {cat}
+        {/* Active Search Filter Pill (If search query active) */}
+        {searchVal && (
+          <div className="flex items-center justify-between bg-[#fdf0f5] px-4 py-2 rounded-[4px] border border-[#F8BBD0] mb-4">
+            <span className="text-xs font-bold text-[#4A0E17]">Search query: "{searchVal}"</span>
+            <button onClick={() => updateParam("search", "")} className="text-[#4A0E17] hover:text-stone-900 cursor-pointer text-xs font-bold flex items-center gap-1">
+              <span>Clear</span>
+              <X className="w-3.5 h-3.5" />
             </button>
-          ))}
-        </div>
+          </div>
+        )}
+
+
 
         {/* Circular Subcategories Carousel Section (Matching User Reference Screenshot) */}
         {(category === "All" || category === "Sarees") && (
@@ -163,14 +136,27 @@ export default function Shop() {
                     handleCategoryChange("Sarees");
                     updateParam("search", subCat.search);
                   }}
-                  className="bg-[#f8f7f5] p-3 sm:p-4 rounded-[4px] border border-stone-200/80 shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center cursor-pointer group shrink-0 w-28 sm:w-36 md:w-40 snap-start"
+                  className="group relative overflow-hidden rounded-[4px] border border-stone-200 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer shrink-0 w-28 sm:w-36 md:w-44 h-36 sm:h-44 md:h-52 snap-start"
                 >
-                  <div className="w-18 h-18 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-white shadow-xs mb-2 transition-transform duration-500 group-hover:scale-105 bg-gradient-to-tr from-[#fdf0f5] to-[#f8bbd0]/30 flex items-center justify-center shrink-0">
-                    <img src={subCat.img} alt={subCat.name} className="w-full h-full object-cover" />
+                  {/* Full-bleed picture filling the ENTIRE box */}
+                  <img 
+                    src={subCat.img} 
+                    alt={subCat.name} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  
+                  {/* Gradient shadow overlay for crystal-clear readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+
+                  {/* Text content rendered ON TOP of the picture */}
+                  <div className="relative z-10 p-3 sm:p-3.5">
+                    <span className="text-[9px] font-bold text-[#F8BBD0] uppercase tracking-widest block mb-0.5">
+                      SAREE EDIT
+                    </span>
+                    <span className="text-xs sm:text-sm md:text-base font-serif font-bold text-white tracking-wide block leading-snug drop-shadow-xs">
+                      {subCat.name}
+                    </span>
                   </div>
-                  <span className="text-xs sm:text-sm font-serif font-bold text-stone-900 line-clamp-1 group-hover:text-[#4A0E17] transition-colors mt-1">
-                    {subCat.name}
-                  </span>
                 </button>
               ))}
             </div>

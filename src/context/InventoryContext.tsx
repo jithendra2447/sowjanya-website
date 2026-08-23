@@ -14,7 +14,7 @@ interface InventoryContextType {
   totalStockValue: number;
 }
 
-const STORAGE_KEY = "lscollections_inventory_v6";
+const STORAGE_KEY = "lscollections_inventory_v8";
 
 const seedStock = (items: Product[]): Product[] => {
   return items.map((item, idx) => ({
