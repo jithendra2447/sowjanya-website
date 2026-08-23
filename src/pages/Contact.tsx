@@ -42,22 +42,22 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/80 via-white to-[#fdf0f5]/50 pb-24 pt-16 md:pt-20 text-left font-sans">
       
-      {/* 1. HERO BANNER USING EXACT HOME PAGE BG (/home-bg.jpg) AND BRAND COLORS */}
+      {/* 1. HERO BANNER USING EXACT HOME PAGE BG (/home-bg.jpg) AND BRAND FONTS */}
       <section className="relative w-full bg-[url('/home-bg.jpg')] bg-cover bg-center bg-no-repeat py-12 md:py-16 px-4 sm:px-8 border-b border-[#F8BBD0] shadow-xs mb-10">
         <div className="max-w-[1200px] mx-auto text-center space-y-3.5">
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#fdf0f5] border border-[#F8BBD0] text-xs font-black uppercase tracking-[0.2em] text-[#4A0E17] shadow-2xs">
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#fdf0f5] border border-[#F8BBD0] text-xs font-sans font-black uppercase tracking-[0.2em] text-[#4A0E17] shadow-2xs">
             <Sparkles className="w-3.5 h-3.5" /> STORE HELPDESK & STYLING CONCIERGE
           </span>
           
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-extrabold text-[#4A0E17] uppercase tracking-normal">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-extrabold text-[#4A0E17] uppercase tracking-wide">
             Personal Concierge & Support
           </h1>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#2D1C3D]/80 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base font-sans text-[#2D1C3D]/80 font-medium max-w-2xl mx-auto leading-relaxed">
             Experience bespoke Indian ethnic luxury. Visit our Amaravathi store, schedule bridal consultations, or connect directly with our master stylists.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 text-xs font-bold text-[#4A0E17]">
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 text-xs font-sans font-bold text-[#4A0E17]">
             <span className="flex items-center gap-1.5 bg-[#fdf0f5]/90 border border-[#F8BBD0] px-3.5 py-1.5 rounded-full shadow-2xs">
               <ShieldCheck className="w-4 h-4 text-[#4A0E17]" /> 100% Authentic Handloom Silk
             </span>
@@ -73,9 +73,7 @@ export default function Contact() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
 
-
-
-        {/* 3. MAIN 2-COLUMN SECTION: FORM + STORE CARDS */}
+        {/* 2. MAIN 2-COLUMN SECTION: FORM + STORE CARDS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column (7 cols): Contact Form */}
@@ -83,15 +81,15 @@ export default function Contact() {
             
             <div className="border-b border-[#F8BBD0]/60 pb-4 flex items-center justify-between">
               <div>
-                <h2 className="text-lg sm:text-xl font-serif font-bold text-[#4A0E17] tracking-wider uppercase">
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#4A0E17] tracking-wider uppercase">
                   SEND US A DIRECT MESSAGE
                 </h2>
-                <p className="text-xs font-semibold text-[#2D1C3D]/70 mt-0.5">
+                <p className="text-xs font-sans font-semibold text-[#2D1C3D]/70 mt-1">
                   Fill out your details below and our customer desk will respond within 2–4 hours.
                 </p>
               </div>
               <div className="hidden sm:block text-right">
-                <span className="text-[10px] font-extrabold text-[#4A0E17] bg-[#fdf0f5] px-2.5 py-1 rounded-[4px] border border-[#F8BBD0] uppercase tracking-wider">
+                <span className="text-[10px] font-sans font-extrabold text-[#4A0E17] bg-[#fdf0f5] px-3 py-1.5 rounded-[4px] border border-[#F8BBD0] uppercase tracking-[0.15em]">
                   FAST RESPONSE DESK
                 </span>
               </div>
@@ -100,32 +98,32 @@ export default function Contact() {
             {submitted ? (
               <div className="bg-[#fdf0f5] border border-[#F8BBD0] p-8 rounded-[4px] text-center space-y-4">
                 <CheckCircle2 className="w-12 h-12 text-[#4A0E17] mx-auto" />
-                <h3 className="text-xl font-serif font-bold text-[#4A0E17]">Inquiry Prepared, {name}!</h3>
-                <p className="text-xs text-[#2D1C3D] font-medium max-w-md mx-auto leading-relaxed">
+                <h3 className="text-2xl font-serif font-bold text-[#4A0E17]">Inquiry Prepared, {name}!</h3>
+                <p className="text-xs font-sans text-[#2D1C3D] font-medium max-w-md mx-auto leading-relaxed">
                   Your message has been compiled for <strong>lscollections25@gmail.com</strong>. If your email client did not open automatically, click below to chat with our instant WhatsApp concierge.
                 </p>
                 <div className="pt-2 flex justify-center gap-3">
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-5 py-2.5 bg-[#4A0E17] text-white text-xs font-bold uppercase tracking-wider rounded-[4px] shadow-xs"
+                    className="px-6 py-3 bg-[#4A0E17] text-white text-xs font-sans font-bold uppercase tracking-widest rounded-[4px] shadow-xs cursor-pointer"
                   >
                     Send Another Inquiry
                   </button>
                   <button
                     onClick={handleWhatsAppSubmit}
-                    className="px-5 py-2.5 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider rounded-[4px] shadow-xs flex items-center gap-1.5"
+                    className="px-6 py-3 bg-[#25D366] text-white text-xs font-sans font-bold uppercase tracking-widest rounded-[4px] shadow-xs flex items-center gap-1.5 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4" fill="currentColor" /> Chat WhatsApp
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleEmailSubmit} className="space-y-4 text-xs font-bold text-[#2D1C3D]">
+              <form onSubmit={handleEmailSubmit} className="space-y-4 text-xs text-[#2D1C3D]">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Full Name */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-name" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
+                    <label htmlFor="cont-name" className="uppercase tracking-[0.15em] text-[11px] text-[#4A0E17] font-sans font-extrabold block">
                       Full Name <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -135,13 +133,13 @@ export default function Contact() {
                       placeholder="e.g. Sowjanya Lakshmi"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-sans font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
 
                   {/* Phone / WhatsApp */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-phone" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
+                    <label htmlFor="cont-phone" className="uppercase tracking-[0.15em] text-[11px] text-[#4A0E17] font-sans font-extrabold block">
                       Phone / WhatsApp No. <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -151,7 +149,7 @@ export default function Contact() {
                       placeholder="+91 86398 76898"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-sans font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
@@ -159,7 +157,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Email Address */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-email" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
+                    <label htmlFor="cont-email" className="uppercase tracking-[0.15em] text-[11px] text-[#4A0E17] font-sans font-extrabold block">
                       Email Address (Optional)
                     </label>
                     <input
@@ -168,20 +166,20 @@ export default function Contact() {
                       placeholder="name@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-sans font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     />
                   </div>
 
                   {/* Inquiry Category */}
                   <div className="space-y-1.5">
-                    <label htmlFor="cont-type" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
+                    <label htmlFor="cont-type" className="uppercase tracking-[0.15em] text-[11px] text-[#4A0E17] font-sans font-extrabold block">
                       Inquiry Category
                     </label>
                     <select
                       id="cont-type"
                       value={inquiryType}
                       onChange={(e) => setInquiryType(e.target.value)}
-                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
+                      className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-sans font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white transition-all"
                     >
                       <option value="Bridal Styling & Custom Saree Draping">Bridal Styling & Custom Saree Draping</option>
                       <option value="Blouse Stitching & Customization">Blouse Stitching & Customization</option>
@@ -195,7 +193,7 @@ export default function Contact() {
 
                 {/* Message */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cont-msg" className="uppercase tracking-wider text-[11px] text-[#4A0E17] font-black">
+                  <label htmlFor="cont-msg" className="uppercase tracking-[0.15em] text-[11px] text-[#4A0E17] font-sans font-extrabold block">
                     Message / Query Details <span className="text-rose-500">*</span>
                   </label>
                   <textarea
@@ -205,7 +203,7 @@ export default function Contact() {
                     placeholder="Provide details about your saree drape preferences, color customization, event dates, or product codes..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-semibold focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white resize-none transition-all"
+                    className="w-full bg-[#fdf0f5]/40 border border-[#F8BBD0] rounded-[4px] px-3.5 py-3 text-xs text-stone-900 font-sans font-semibold placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-[#F8BBD0] focus:bg-white resize-none transition-all"
                   />
                 </div>
 
@@ -213,7 +211,7 @@ export default function Contact() {
                 <div className="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-[#4A0E17] hover:bg-[#6b1422] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#F8BBD0]"
+                    className="w-full py-3.5 bg-[#4A0E17] hover:bg-[#6b1422] text-white text-xs font-sans font-bold uppercase tracking-[0.2em] rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer border border-[#F8BBD0]"
                   >
                     <Send className="w-4 h-4 text-white" />
                     <span>Send Message (Email)</span>
@@ -222,7 +220,7 @@ export default function Contact() {
                   <button
                     type="button"
                     onClick={handleWhatsAppSubmit}
-                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-xs font-bold uppercase tracking-widest rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    className="w-full py-3.5 bg-[#25D366] hover:bg-[#128C7E] text-white text-xs font-sans font-bold uppercase tracking-[0.2em] rounded-[4px] shadow-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 text-white" fill="currentColor" />
                     <span>Chat on WhatsApp</span>
@@ -241,16 +239,16 @@ export default function Contact() {
             <div className="bg-gradient-to-b from-[#fdf0f5] to-white text-[#2D1C3D] p-6 sm:p-8 rounded-[4px] border border-[#F8BBD0] shadow-sm space-y-5">
               
               <div>
-                <span className="text-[10px] font-black tracking-[0.25em] text-[#4A0E17] uppercase block">
+                <span className="text-[10px] font-sans font-black tracking-[0.25em] text-[#4A0E17] uppercase block">
                   FLAGSHIP BOUTIQUE STORE
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17] tracking-wide uppercase mt-1">
+                <h3 className="text-2xl sm:text-3xl font-serif font-extrabold text-[#4A0E17] tracking-wide uppercase mt-1">
                   LS Collections
                 </h3>
               </div>
 
               {/* Exact Address */}
-              <div className="space-y-2 text-xs text-[#2D1C3D] leading-relaxed pt-3 border-t border-[#F8BBD0]/60">
+              <div className="space-y-2 text-xs font-sans text-[#2D1C3D] leading-relaxed pt-3 border-t border-[#F8BBD0]/60">
                 <p className="font-semibold text-[#4A0E17] flex items-start gap-2">
                   <MapPin className="w-4 h-4 text-[#4A0E17] shrink-0 mt-0.5" />
                   <span>📍 LS Collections Near Busstand ,Towards Sattenapalli Road Amaravathi 522020</span>
@@ -261,7 +259,7 @@ export default function Contact() {
               </div>
 
               {/* Timings & Phone */}
-              <div className="space-y-2.5 pt-3 border-t border-[#F8BBD0]/60 text-xs font-semibold text-[#2D1C3D]">
+              <div className="space-y-2.5 pt-3 border-t border-[#F8BBD0]/60 text-xs font-sans font-semibold text-[#2D1C3D]">
                 <div className="flex items-center gap-2.5">
                   <Clock className="w-4 h-4 text-[#4A0E17] shrink-0" />
                   <span>Timings: Monday to Sunday: 10:00 AM – 7:00 PM IST</span>
@@ -282,10 +280,10 @@ export default function Contact() {
                   <Mail className="w-5.5 h-5.5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block">Email Support</span>
+                  <span className="text-[11px] font-sans font-bold text-stone-500 uppercase tracking-wider block">Email Support</span>
                   <a 
                     href="mailto:lscollections25@gmail.com" 
-                    className="text-xs sm:text-sm font-extrabold text-[#4A0E17] hover:underline truncate block"
+                    className="text-xs sm:text-sm font-sans font-extrabold text-[#4A0E17] hover:underline truncate block"
                   >
                     lscollections25@gmail.com
                   </a>
@@ -299,12 +297,12 @@ export default function Contact() {
                   <MessageCircle className="w-5.5 h-5.5" fill="currentColor" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider block">Instant WhatsApp Concierge</span>
+                  <span className="text-[11px] font-sans font-bold text-stone-500 uppercase tracking-wider block">Instant WhatsApp Concierge</span>
                   <a 
                     href={buildWhatsAppUrl("Hi LS Collections, I need help with an order.")}
                     target="_blank"
                     rel="noopener noreferrer" 
-                    className="text-xs sm:text-sm font-extrabold text-[#25D366] hover:underline block"
+                    className="text-xs sm:text-sm font-sans font-extrabold text-[#25D366] hover:underline block"
                   >
                     +91 86398 76898
                   </a>
