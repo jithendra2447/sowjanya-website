@@ -94,7 +94,7 @@ export default function Shop() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/50 via-white to-[#fdf0f5]/30 pb-24 pt-28 md:pt-36 text-left">
+    <div className="min-h-screen bg-gradient-to-b from-[#fdf0f5]/50 via-white to-[#fdf0f5]/30 pb-24 pt-16 md:pt-20 text-left">
       <div className="max-w-[1440px] mx-auto px-4">
         
 
