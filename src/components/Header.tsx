@@ -403,22 +403,24 @@ export default function Header() {
           </nav>
         )}
 
-        {/* Infinite Scrolling Promo Banner */}
-        <div className="w-full bg-[#F8BBD0] text-[#4A0E17] py-5 overflow-hidden border-t border-[#4A0E17]/10 shadow-xs">
-          <div className="relative w-full flex overflow-x-hidden">
-            <div className="animate-marquee whitespace-nowrap flex items-center gap-12 text-xs sm:text-sm font-bold uppercase tracking-widest">
-              <span>Use Code <strong className="font-extrabold bg-[#4A0E17] text-white px-2.5 py-0.5 rounded-md">FESTIVE10</strong> for 10% OFF at Checkout!</span>
-              <span>FREE EXPRESS SHIPPING ACROSS INDIA ON ALL ORDERS!</span>
-              <span>WhatsApp Support Enabled: Order Directly via WhatsApp Chat!</span>
-              <span>Handcrafted Pure Handloom Sarees & Premium Temple Jewellery!</span>
-              {/* Duplicate the items for smooth infinite loop transition */}
-              <span>Use Code <strong className="font-extrabold bg-[#4A0E17] text-white px-2.5 py-0.5 rounded-md">FESTIVE10</strong> for 10% OFF at Checkout!</span>
-              <span>FREE EXPRESS SHIPPING ACROSS INDIA ON ALL ORDERS!</span>
-              <span>WhatsApp Support Enabled: Order Directly via WhatsApp Chat!</span>
-              <span>Handcrafted Pure Handloom Sarees & Premium Temple Jewellery!</span>
+        {/* Infinite Scrolling Promo Banner (Home Page Only) */}
+        {pathname === "/" && (
+          <div className="w-full bg-[#F8BBD0] text-[#4A0E17] py-5 overflow-hidden border-t border-[#4A0E17]/10 shadow-xs">
+            <div className="relative w-full flex overflow-x-hidden">
+              <div className="animate-marquee whitespace-nowrap flex items-center gap-12 text-xs sm:text-sm font-bold uppercase tracking-widest">
+                <span>Use Code <strong className="font-extrabold bg-[#4A0E17] text-white px-2.5 py-0.5 rounded-md">FESTIVE10</strong> for 10% OFF at Checkout!</span>
+                <span>FREE EXPRESS SHIPPING ACROSS INDIA ON ALL ORDERS!</span>
+                <span>WhatsApp Support Enabled: Order Directly via WhatsApp Chat!</span>
+                <span>Handcrafted Pure Handloom Sarees & Premium Temple Jewellery!</span>
+                {/* Duplicate the items for smooth infinite loop transition */}
+                <span>Use Code <strong className="font-extrabold bg-[#4A0E17] text-white px-2.5 py-0.5 rounded-md">FESTIVE10</strong> for 10% OFF at Checkout!</span>
+                <span>FREE EXPRESS SHIPPING ACROSS INDIA ON ALL ORDERS!</span>
+                <span>WhatsApp Support Enabled: Order Directly via WhatsApp Chat!</span>
+                <span>Handcrafted Pure Handloom Sarees & Premium Temple Jewellery!</span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
       </header>
 
