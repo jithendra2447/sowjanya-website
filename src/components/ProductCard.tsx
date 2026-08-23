@@ -74,16 +74,6 @@ export default function ProductCard({ product }: ProductCardProps) {
               Sold Out
             </span>
           )}
-
-          {/* Circular Action Button at Bottom-Right of Image */}
-          <button
-            onClick={onAddToCart}
-            disabled={isAdding || isSoldOut}
-            aria-label="Add to cart"
-            className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/95 backdrop-blur-xs shadow-md border border-stone-200/70 flex items-center justify-center text-red-500 hover:scale-110 active:scale-95 transition-all z-10 cursor-pointer"
-          >
-            <ShoppingBag className="w-4 h-4 text-[#4A0E17]" />
-          </button>
         </div>
 
         {/* Carousel Pagination Indicator Dots */}
@@ -96,19 +86,35 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="w-1.5 h-1.5 rounded-full bg-stone-300" />
         </div>
 
-        {/* Wishlist Outlined Button */}
-        <div className="px-3">
+        {/* Two Buttons: WISHLIST and ADD TO CART */}
+        <div className="px-3 grid grid-cols-2 gap-2">
+          {/* 1. Wishlist Button */}
           <button
             onClick={onHeart}
             className={cn(
-              "w-full border border-stone-300 rounded-[4px] py-2 flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer",
+              "w-full border border-stone-300 rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all cursor-pointer",
               saved 
                 ? "bg-red-50 border-red-200 text-red-600" 
                 : "bg-white text-stone-800 hover:bg-stone-50 hover:border-stone-400"
             )}
           >
-            <Heart className={cn("w-4 h-4", saved ? "fill-red-500 text-red-500" : "text-stone-700")} />
-            <span>{saved ? "WISHLISTED" : "WISHLIST"}</span>
+            <Heart className={cn("w-3.5 h-3.5", saved ? "fill-red-500 text-red-500" : "text-stone-700")} />
+            <span>{saved ? "SAVED" : "WISHLIST"}</span>
+          </button>
+
+          {/* 2. Cart Button */}
+          <button
+            onClick={onAddToCart}
+            disabled={isAdding || isSoldOut}
+            className={cn(
+              "w-full border rounded-[4px] py-2 flex items-center justify-center gap-1.5 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs",
+              isSoldOut
+                ? "bg-stone-200 border-stone-300 text-stone-500 cursor-not-allowed"
+                : "bg-[#4A0E17] border-[#4A0E17] text-white hover:bg-[#6b1422] active:scale-98"
+            )}
+          >
+            <ShoppingBag className="w-3.5 h-3.5 text-white" />
+            <span>{isAdding ? "ADDED" : isSoldOut ? "SOLD OUT" : "ADD TO CART"}</span>
           </button>
         </div>
 
