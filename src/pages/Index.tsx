@@ -248,7 +248,7 @@ export default function Index() {
       title: "KALAMKARI",
       offer: "Hand-Printed Vintage Weaves",
       tag: "ARTISANAL VINTAGE DRAPES",
-      img: "/saree-banner-1.png",
+      img: "/saree-banner-1.jpg",
       link: "/shop?category=Sarees&search=Kalamkari"
     },
     {
