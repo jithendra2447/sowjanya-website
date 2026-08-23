@@ -87,8 +87,8 @@ export default function Header() {
     <>
       <header className={cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-stone-200/80 shadow-xs")}>
         
-        {/* Top Announcement Bar (Half Height on Mobile) */}
-        {announcement.showAnnouncement !== false && (
+        {/* Top Announcement Bar (Home Page Only) */}
+        {pathname === "/" && announcement.showAnnouncement !== false && (
           <div className="bg-brand-dark text-brand-pastel-pink text-[9px] sm:text-xs py-0.5 sm:py-2 px-3 sm:px-4 text-center border-b border-stone-100/10 font-medium leading-tight">
             <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-2 sm:gap-4">
               <span className="hidden sm:inline-block font-extrabold uppercase bg-brand-pastel-pink text-brand-dark px-2 py-0.5 rounded-full text-[9px]">
