@@ -241,36 +241,36 @@ export default function Index() {
       title: "ROYAL HERITAGE",
       offer: "Bridal & Festive Edit",
       tag: "EXQUISITE CRAFTSMANSHIP",
-      img: "/saree-luxury-royal-group.png",
+      img: "/saree-banner-2.jpg",
       link: "/shop?category=Sarees"
     },
     {
       title: "KALAMKARI",
       offer: "Hand-Printed Vintage Weaves",
       tag: "ARTISANAL VINTAGE DRAPES",
-      img: "/saree-luxury-heritage-door.png",
+      img: "/saree-banner-1.png",
       link: "/shop?category=Sarees&search=Kalamkari"
+    },
+    {
+      title: "ROYAL ARCHWAYS",
+      offer: "Pure Silks & Handlooms",
+      tag: "PALACE DRAPES",
+      img: "/saree-banner-3.jpg",
+      link: "/shop?category=Sarees"
     },
     {
       title: "KANJEEVARAM SILK",
       offer: "Royal Gold Zari Weaves",
       tag: "PURE HANDLOOM SILK",
-      img: "/saree-luxury-kanjeevaram-yellow.png",
+      img: "/saree-banner-4.png",
       link: "/shop?category=Sarees&search=Kanjeevaram"
     },
     {
-      title: "BANARASI DRAPES",
-      offer: "Crimson & Gold Heritage",
-      tag: "ROYAL HERITAGE WEAVES",
-      img: "/saree-studio-hero.jpg",
-      link: "/shop?category=Sarees&search=Banarasi"
-    },
-    {
-      title: "SOFT SILK EDIT",
+      title: "TEMPLE DRAPES",
       offer: "Special Festive Wear @ ₹1999",
-      tag: "MYSORE & CHANDERI COTTONS",
-      img: "/saree-studio-card-2.jpg",
-      link: "/shop?category=Sarees&search=Soft"
+      tag: "HERITAGE SAREES",
+      img: "/saree-banner-5.jpg",
+      link: "/shop?category=Sarees"
     }
   ];
 
