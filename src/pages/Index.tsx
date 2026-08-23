@@ -786,13 +786,13 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1 px-1">
+            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1">
               <Link
                 to="/shop?category=Jewellery"
-                className="inline-flex items-center gap-1.5 text-xs font-black text-[#4A0E17] hover:underline uppercase tracking-widest group cursor-pointer"
+                className="w-full bg-[#4A0E17] hover:bg-[#6b1422] text-white border border-[#F8BBD0] rounded-[4px] py-2 px-3 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xs hover:shadow-md group cursor-pointer"
               >
                 <span>VIEW ALL JEWELLERY</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-white" />
               </Link>
             </div>
           </div>
@@ -948,13 +948,13 @@ export default function Index() {
               </div>
             </div>
 
-            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1 px-1">
+            <div className="mt-1.5 pt-2 border-t border-[#F8BBD0]/80 shrink-0 relative z-1">
               <Link
                 to="/shop?category=Scoops"
-                className="inline-flex items-center gap-1.5 text-xs font-black text-[#4A0E17] hover:underline uppercase tracking-widest group cursor-pointer"
+                className="w-full bg-[#4A0E17] hover:bg-[#6b1422] text-white border border-[#F8BBD0] rounded-[4px] py-2 px-3 flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xs hover:shadow-md group cursor-pointer"
               >
                 <span>VIEW ALL SCOOPS</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 text-white" />
               </Link>
             </div>
           </div>

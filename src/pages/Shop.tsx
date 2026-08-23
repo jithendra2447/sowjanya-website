@@ -101,7 +101,7 @@ export default function Shop() {
 
 
 
-        {/* Subcategories Banner Section */}
+        {/* Subcategories Banner Section: Sarees */}
         {(category === "All" || category === "Sarees") && (
           <div className="mb-8">
             <div className="flex items-center justify-between mb-3 px-1">
@@ -116,18 +116,18 @@ export default function Shop() {
             
             <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] lg:auto-cols-[230px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
               {[
-                { name: "Kanjeevaram", img: "/saree-studio-hero.jpg", search: "Kanjeevaram" },
-                { name: "Banarasi", img: "/saree-studio-card-2.jpg", search: "Banarasi" },
+                { name: "Kanjeevaram", img: "/saree-kanjeevaram-yellow-authentic.png", search: "Kanjeevaram" },
+                { name: "Banarasi", img: "/saree-studio-hero.jpg", search: "Banarasi" },
                 { name: "Soft Silk", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Soft Silk" },
                 { name: "Organza", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Organza" },
                 { name: "Chanderi", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Chanderi" },
-                { name: "Bridal Zari", img: "/saree-studio-hero.jpg", search: "Bridal" },
+                { name: "Bridal Zari", img: "/saree-royal-group-authentic.jpg", search: "Bridal" },
                 { name: "Partywear", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Partywear" },
                 { name: "Tussar Silk", img: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=400&auto=format&fit=cover", search: "Tussar" },
                 { name: "Mysore Silk", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Mysore" },
                 { name: "Linen Cotton", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Linen" },
                 { name: "Georgette", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Georgette" },
-                { name: "Paithani", img: "/saree-studio-card-2.jpg", search: "Paithani" }
+                { name: "Kalamkari", img: "/saree-kalamkari-authentic-drape.jpg", search: "Kalamkari" }
               ].map((subCat, idx) => (
                 <button
                   key={idx}
@@ -137,20 +137,127 @@ export default function Shop() {
                   }}
                   className="group relative overflow-hidden rounded-[4px] border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer w-full h-36 sm:h-44 md:h-48 snap-start"
                 >
-                  {/* Full-bleed picture filling the ENTIRE box */}
                   <img 
                     src={subCat.img} 
                     alt={subCat.name} 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
                   />
-                  
-                  {/* Gradient shadow overlay for crystal-clear readability */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-
-                  {/* Text content rendered ON TOP of the picture */}
                   <div className="relative z-10 p-2.5 sm:p-3">
                     <span className="inline-block px-2 py-0.5 rounded-[4px] bg-black/40 backdrop-blur-md border border-[#F8BBD0]/50 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-[#F8BBD0] mb-1 shadow-2xs">
                       SAREE EDIT
+                    </span>
+                    <span className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide block leading-tight drop-shadow-xs">
+                      {subCat.name}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Subcategories Banner Section: Jewellery */}
+        {category === "Jewellery" && (
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <h3 className="text-sm font-extrabold uppercase tracking-widest text-[#4A0E17] flex items-center gap-2">
+                <span>JEWELLERY COLLECTIONS</span>
+                <div className="h-0.5 bg-[#4A0E17]/20 w-16 sm:w-28 rounded-full hidden sm:block" />
+              </h3>
+              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                12 Categories
+              </span>
+            </div>
+            
+            <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] lg:auto-cols-[230px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
+              {[
+                { name: "Temple Jewellery", img: "/jewellery-studio-hero-2.jpg", search: "Temple" },
+                { name: "Kundan & Polki", img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=cover", search: "Kundan" },
+                { name: "Oxidised Silver", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=cover", search: "Silver" },
+                { name: "Bridal Chokers", img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=400&auto=format&fit=cover", search: "Choker" },
+                { name: "Gold Bangles", img: "/jewellery-studio-hero.jpg", search: "Bangles" },
+                { name: "Statement Jhumkas", img: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=400&auto=format&fit=cover", search: "Jhumka" },
+                { name: "Matha Patti", img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=cover", search: "Tikka" },
+                { name: "Naths & Rings", img: "/jewellery-studio-hero-2.jpg", search: "Nath" },
+                { name: "Rani Haars", img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=400&auto=format&fit=cover", search: "Haar" },
+                { name: "Pearl & Stones", img: "/jewellery-studio-hero.jpg", search: "Pearl" },
+                { name: "Floral Sets", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=cover", search: "Floral" },
+                { name: "Antique Earstuds", img: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=400&auto=format&fit=cover", search: "Earrings" }
+              ].map((subCat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    handleCategoryChange("Jewellery");
+                    updateParam("search", subCat.search);
+                  }}
+                  className="group relative overflow-hidden rounded-[4px] border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer w-full h-36 sm:h-44 md:h-48 snap-start"
+                >
+                  <img 
+                    src={subCat.img} 
+                    alt={subCat.name} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                  <div className="relative z-10 p-2.5 sm:p-3">
+                    <span className="inline-block px-2 py-0.5 rounded-[4px] bg-black/40 backdrop-blur-md border border-[#F8BBD0]/50 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-[#F8BBD0] mb-1 shadow-2xs">
+                      JEWELLERY EDIT
+                    </span>
+                    <span className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide block leading-tight drop-shadow-xs">
+                      {subCat.name}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Subcategories Banner Section: Scoops */}
+        {category === "Scoops" && (
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-3 px-1">
+              <h3 className="text-sm font-extrabold uppercase tracking-widest text-[#4A0E17] flex items-center gap-2">
+                <span>SCOOPS COLLECTIONS</span>
+                <div className="h-0.5 bg-[#4A0E17]/20 w-16 sm:w-28 rounded-full hidden sm:block" />
+              </h3>
+              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                12 Categories
+              </span>
+            </div>
+            
+            <div className="grid grid-rows-2 grid-flow-col auto-cols-[140px] sm:auto-cols-[175px] md:auto-cols-[210px] lg:auto-cols-[230px] overflow-x-auto gap-3 sm:gap-3.5 pb-3 scrollbar-none snap-x">
+              {[
+                { name: "Large Pearl Scoops", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=400&auto=format&fit=cover", search: "Large" },
+                { name: "Small Daily Scoops", img: "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=400&auto=format&fit=cover", search: "Small" },
+                { name: "Pearl & Bead Combos", img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=cover", search: "Pearl" },
+                { name: "Floral Scoop Sets", img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=400&auto=format&fit=cover", search: "Floral" },
+                { name: "Golden Finish Scoops", img: "/jewellery-studio-hero.jpg", search: "Gold" },
+                { name: "Kundan & Stone Scoops", img: "/jewellery-studio-hero-2.jpg", search: "Kundan" },
+                { name: "Fabric Scoops", img: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=400&auto=format&fit=cover", search: "Fabric" },
+                { name: "Bridal Scoop Combos", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=400&auto=format&fit=cover", search: "Bridal" },
+                { name: "Festive Gift Scoops", img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=cover", search: "Gift" },
+                { name: "Velvet Scoop Bags", img: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=400&auto=format&fit=cover", search: "Velvet" },
+                { name: "Zari Border Scoops", img: "/saree-studio-card-2.jpg", search: "Zari" },
+                { name: "Royal Scoop Hampers", img: "/saree-studio-hero.jpg", search: "Hamper" }
+              ].map((subCat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    handleCategoryChange("Scoops");
+                    updateParam("search", subCat.search);
+                  }}
+                  className="group relative overflow-hidden rounded-[4px] border border-stone-200/80 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-end text-left cursor-pointer w-full h-36 sm:h-44 md:h-48 snap-start"
+                >
+                  <img 
+                    src={subCat.img} 
+                    alt={subCat.name} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                  <div className="relative z-10 p-2.5 sm:p-3">
+                    <span className="inline-block px-2 py-0.5 rounded-[4px] bg-black/40 backdrop-blur-md border border-[#F8BBD0]/50 text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-[#F8BBD0] mb-1 shadow-2xs">
+                      SCOOPS EDIT
                     </span>
                     <span className="text-xs sm:text-sm font-serif font-bold text-white tracking-wide block leading-tight drop-shadow-xs">
                       {subCat.name}
