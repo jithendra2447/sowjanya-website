@@ -993,18 +993,18 @@ export default function Index() {
 
 
 
-      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (2-Way Opposite Direction Moving Marquee) */}
-      <section className="w-full my-12 py-10 bg-gradient-to-b from-white via-[#fdf0f5]/60 to-white overflow-hidden text-left border-y border-[#F8BBD0]/40">
-        <div className="max-w-[1440px] mx-auto px-4 mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      {/* Dedicated Section: CUSTOMER REVIEWS & LOVE (Compact Height Marquee) */}
+      <section className="w-full mt-6 mb-1 py-4 sm:py-6 bg-gradient-to-b from-white via-[#fdf0f5]/60 to-white overflow-hidden text-left border-y border-[#F8BBD0]/40">
+        <div className="max-w-[1440px] mx-auto px-4 mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fdf0f5] border border-[#F8BBD0]/60 text-[11px] font-black text-[#4A0E17] tracking-widest uppercase mb-2">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fdf0f5] border border-[#F8BBD0]/60 text-[10px] sm:text-[11px] font-black text-[#4A0E17] tracking-widest uppercase mb-1">
+              <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
               <span>4.9 / 5.0 RATED BY 2,450+ CLIENTS</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-sans font-extrabold text-[#4A0E17] tracking-wider uppercase">
+            <h2 className="text-lg sm:text-xl font-sans font-extrabold text-[#4A0E17] tracking-wider uppercase">
               CUSTOMER REVIEWS & LOVE
             </h2>
-            <p className="text-xs font-medium text-stone-500 tracking-wider uppercase mt-1">
+            <p className="text-[11px] sm:text-xs font-medium text-stone-500 tracking-wider uppercase mt-0.5">
               REAL EXPERIENCES FROM OUR VERIFIED BUYERS ACROSS INDIA
             </p>
           </div>
@@ -1092,21 +1092,21 @@ export default function Index() {
                   ].map((review, idx) => (
                     <div 
                       key={idx}
-                      className="w-[280px] sm:w-[340px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[20px] p-3.5 sm:p-4 flex flex-col justify-between h-[165px] sm:h-[170px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
+                      className="w-[260px] sm:w-[320px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[18px] p-3 sm:p-3.5 flex flex-col justify-between h-[135px] sm:h-[145px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center justify-between mb-1.5">
                           <div className="flex items-center gap-1">
                             {[...Array(review.stars)].map((_, i) => (
-                              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
                             ))}
                           </div>
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                            <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
                             Verified Buyer
                           </span>
                         </div>
-                        <p className="text-xs text-stone-700 leading-relaxed font-medium line-clamp-3">
+                        <p className="text-[11px] sm:text-xs text-stone-700 leading-snug font-medium line-clamp-2 sm:line-clamp-3">
                           "{review.text}"
                         </p>
                       </div>
@@ -1210,21 +1210,21 @@ export default function Index() {
                   ].map((review, idx) => (
                     <div 
                       key={idx}
-                      className="w-[280px] sm:w-[340px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[20px] p-3.5 sm:p-4 flex flex-col justify-between h-[165px] sm:h-[170px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
+                      className="w-[260px] sm:w-[320px] bg-[#fdf0f5]/90 hover:bg-white border border-[#F8BBD0]/60 rounded-[18px] p-3 sm:p-3.5 flex flex-col justify-between h-[135px] sm:h-[145px] shadow-2xs hover:shadow-md transition-all duration-300 shrink-0"
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center justify-between mb-1.5">
                           <div className="flex items-center gap-1">
                             {[...Array(review.stars)].map((_, i) => (
-                              <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                              <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
                             ))}
                           </div>
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                            <CheckCircle2 className="w-2.5 h-2.5 text-emerald-600" />
                             Verified Buyer
                           </span>
                         </div>
-                        <p className="text-xs text-stone-700 leading-relaxed font-medium line-clamp-3">
+                        <p className="text-[11px] sm:text-xs text-stone-700 leading-snug font-medium line-clamp-2 sm:line-clamp-3">
                           "{review.text}"
                         </p>
                       </div>
@@ -1253,7 +1253,7 @@ export default function Index() {
       </section>
 
       {/* Luxury Flagship Store / Boutique Video Banner Section (Anita Dongre Style - Sleek Compact Mobile Height) */}
-      <section className="relative w-full max-w-[1440px] mx-auto overflow-hidden my-6 sm:my-10 bg-black text-white h-[240px] sm:h-[360px] md:h-[500px] rounded-[20px] sm:rounded-[32px] border border-stone-800 shadow-lg">
+      <section className="relative w-full max-w-[1440px] mx-auto overflow-hidden mt-1 mb-6 sm:mb-10 bg-black text-white h-[240px] sm:h-[360px] md:h-[500px] rounded-[20px] sm:rounded-[32px] border border-stone-800 shadow-lg">
         {/* Background Video aligned to top so faces are never cut off */}
         <video 
           autoPlay 
