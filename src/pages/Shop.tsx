@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useInventory } from "@/context/InventoryContext";
 import ProductCard from "@/components/ProductCard";
-import { Filter, SlidersHorizontal, Grid, Search, X } from "lucide-react";
+import { Filter, SlidersHorizontal, Grid, Search, X, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Shop() {
@@ -170,6 +170,21 @@ export default function Shop() {
             </div>
           </div>
         )}
+
+        {/* Low-Height Sleek Separation Banner */}
+        <div className="mb-6 bg-gradient-to-r from-[#4A0E17] via-[#6b1422] to-[#4A0E17] text-white px-4 sm:px-6 py-2.5 rounded-[4px] border border-[#F8BBD0]/30 shadow-xs flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2.5">
+            <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
+            <span className="text-xs sm:text-sm font-serif font-bold tracking-wider uppercase">
+              EXPLORE ALL HANDPICKED SAREE CATALOGUE
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-[10px] sm:text-xs font-medium text-amber-100/90">
+            <span>✨ 100% Authentic Handloom Silk</span>
+            <span className="hidden md:inline">•</span>
+            <span className="hidden md:inline">⚡ Express WhatsApp Ordering</span>
+          </div>
+        </div>
 
         <div className="flex flex-col lg:flex-row gap-6 items-start">
           
