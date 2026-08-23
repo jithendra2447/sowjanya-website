@@ -589,16 +589,16 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Right Column (~30% Width): White Luxury Editorial Card Matching Reference Image */}
+          {/* Right Column (~30% Width): White Luxury Editorial Card with Brand Fonts */}
           <div className="w-full md:w-[30%] bg-white p-6 sm:p-8 md:p-10 flex flex-col justify-between items-start text-left relative z-10 border-t md:border-t-0 md:border-l border-stone-200">
             <div className="w-full space-y-2 sm:space-y-3">
-              <span className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">
+              <span className="font-sans text-[11px] font-extrabold text-[#4A0E17]/80 uppercase tracking-[0.2em] block">
                 {sareeLuxuryBanners[activeSareeLuxuryIndex].tag}
               </span>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-stone-900 tracking-wide uppercase leading-tight">
+              <h3 className="font-serif font-bold text-[#4A0E17] text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-normal uppercase leading-[1.08] my-1">
                 {sareeLuxuryBanners[activeSareeLuxuryIndex].title}
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-stone-600 font-medium tracking-wide">
+              <p className="font-sans text-stone-700 text-sm sm:text-base md:text-lg font-semibold tracking-wide">
                 {sareeLuxuryBanners[activeSareeLuxuryIndex].offer}
               </p>
 
@@ -606,9 +606,9 @@ export default function Index() {
 
               <Link
                 to={sareeLuxuryBanners[activeSareeLuxuryIndex].link}
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-stone-500 hover:text-stone-950 transition-colors group cursor-pointer"
+                className="font-sans inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#4A0E17] hover:text-[#6b1422] transition-colors group cursor-pointer bg-[#fdf0f5] px-3.5 py-2 rounded-[4px] border border-[#F8BBD0]"
               >
-                <span>+ Explore</span>
+                <span>+ EXPLORE</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -617,14 +617,14 @@ export default function Index() {
             <div className="absolute bottom-4 right-4 flex items-center gap-1 z-20">
               <button
                 onClick={() => setActiveSareeLuxuryIndex((prev) => (prev === 0 ? sareeLuxuryBanners.length - 1 : prev - 1))}
-                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                className="w-8 h-8 bg-[#4A0E17] hover:bg-[#6b1422] text-white flex items-center justify-center transition-colors cursor-pointer rounded-[4px] font-bold text-sm border border-[#F8BBD0]"
                 aria-label="Previous Slide"
               >
                 ‹
               </button>
               <button
                 onClick={() => setActiveSareeLuxuryIndex((prev) => (prev + 1) % sareeLuxuryBanners.length)}
-                className="w-8 h-8 bg-stone-800 hover:bg-stone-950 text-white flex items-center justify-center transition-colors cursor-pointer rounded-[2px] font-bold text-sm"
+                className="w-8 h-8 bg-[#4A0E17] hover:bg-[#6b1422] text-white flex items-center justify-center transition-colors cursor-pointer rounded-[4px] font-bold text-sm border border-[#F8BBD0]"
                 aria-label="Next Slide"
               >
                 ›
